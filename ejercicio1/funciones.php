@@ -15,7 +15,7 @@ function escribirTresNumeros($valor1, $valor2, $valor3){
     
     //escribir los tres números si está vacío
     if($tamano === 0){
-        $numeros = "$valor1 \n $valor2 \n $valor3";
+        $numeros = "$valor1 \n$valor2 \n$valor3";
         fwrite($archivo, $numeros);
         //devolver true si todo fué correcto
         return true;
