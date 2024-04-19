@@ -7,7 +7,7 @@
             // Si el archivo existe
             if(file_exists($archivo)){
                 //Ponemos en la variable $contador el valor que tiene
-                $contador = (int) file_get_contents($archivo);
+                $contador = (int)   ($archivo);
             }
             // Se le suma 1 a $contador
             $contador ++;
