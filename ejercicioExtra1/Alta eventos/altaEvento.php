@@ -14,14 +14,18 @@
     <input type="text" id="nombre_evento" name="nombre_evento" ><br><br>
 
     <!-- Campo para el tipo de evento -->
-    <label for="tipo_evento">Tipo de Evento:</label>
+    <!-- <label for="tipo_evento">Tipo de Evento:</label>
     <select id="tipo_evento" name="tipo_evento" >
         <option value="competencia">Competencia</option>
         <option value="entrenamiento">Entrenamiento</option>
         <option value="torneo">Torneo</option>
         <option value="charla">Charla</option>
         <option value="otros">Otros</option>
-    </select><br><br>
+    </select><br><br> -->
+    <?php
+    include 'funciones.php';
+        creaSelect($tipoEvento, 'tipo_evento', 'Tipo de Evento');
+    ?>
 
     <!-- Campo para la fecha del evento -->
     <label for="fecha_evento">Fecha del Evento:</label>
