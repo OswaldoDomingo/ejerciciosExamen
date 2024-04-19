@@ -1,6 +1,6 @@
 <?php
-$tipoEvento = ['competencia', 'entrenamiento', 'torneo', 'charla', 'otros'];
-
+    $tipoEvento = ['competencia', 'entrenamiento', 'torneo', 'charla', 'otros'];
+    
 
 
 ?>
