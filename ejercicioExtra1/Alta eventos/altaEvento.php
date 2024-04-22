@@ -4,11 +4,10 @@
     <title>Formulario de Alta de Evento - Club Deportivo</title>
 </head>
 <body>
-
+<?php   ?>
 <h2>Dar de Alta un Nuevo Evento - Club Deportivo</h2>
 
-<form action="procesar_alta_evento.php" method="post" enctype="multipart/form-data">
-    
+<form action="procesar_alta_evento.php" method="post" enctype="multipart/form-data">  
     <!-- Campo para el nombre del evento -->
     <label for="nombre_evento">Nombre del Evento:</label>
     <input type="text" id="nombre_evento" name="nombre_evento" ><br><br>
@@ -23,13 +22,14 @@
         <option value="otros">Otros</option>
     </select><br><br> -->
     <?php
-    include 'funciones.php';
         creaSelect($tipoEvento, 'tipo_evento', 'Tipo de Evento');
     ?>
 
     <!-- Campo para la fecha del evento -->
     <label for="fecha_evento">Fecha del Evento:</label>
-    <input type="date" id="fecha_evento" name="fecha_evento" ><br><br>
+    <input type="date" id="fecha_evento" name="fecha_evento" >
+    
+    <br><br>
 
     <!-- Campo para la hora del evento -->
     <label for="hora_evento">Hora del Evento:</label>

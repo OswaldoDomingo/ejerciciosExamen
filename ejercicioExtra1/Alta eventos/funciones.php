@@ -1,6 +1,8 @@
 <?php
+include 'libs/bGeneral.php';
 include 'datos.php';
 $errores = [];
+
 //recoger el array, el nombre del select y el titulo
 function creaSelect(array $array, String $nombre, String $titulo):void{
     echo "<label for='$nombre'>$titulo:</label>
@@ -17,7 +19,7 @@ function creaSelect(array $array, String $nombre, String $titulo):void{
 //Poner el array de errores, el nombre del campo para generar el error con la clave campo
 //function compruebaHora(String $fechaInput, array &$errores, String $nombre):bool{
 //******************************************* */
-function compruebaFecha(String $fechaInput):bool{
+function compruebaFecha(String $fechaInput, array &$errores, $nombre):bool{
     //Comprobar si la fecha que recogemos es mayor que la de hoy
     $fechaActual = date("Y-m-d");
     //Comprueba fecha válida con la función creada fechaValida()
@@ -29,17 +31,21 @@ function compruebaFecha(String $fechaInput):bool{
         //Devuelve true si la fecha que ingresamos es mayor a la actual
         return ($fechaInputUnix > $fechaActualUnix);
     } else {
-        
+        $errores[$nombre] = "<br>Error en el campo Fecha";
         return false;
         //Crear el error
     }
 }
 
 function fechaValida(String $fecha):bool{
-    // El formato del input cuando lo recoge es de Año - mes - día (Y-m-d)
-    list($anyo, $mes, $dia) = explode("-", $fecha);
-    //Retorna true o false la forma de recoger los datos checkdate() es (m-d-Y) 
-    return (checkdate((int)$mes, (int)$dia, (int)$anyo));
+    if($fecha !== ''){
+        // El formato del input cuando lo recoge es de Año - mes - día (Y-m-d)
+        list($anyo, $mes, $dia) = explode("-", $fecha);
+        //Retorna true o false la forma de recoger los datos checkdate() es (m-d-Y) 
+        return (checkdate((int)$mes, (int)$dia, (int)$anyo));
+    } else {
+        return false;
+    }
 }
 
 //Comprobar hora correcta
@@ -47,7 +53,7 @@ function fechaValida(String $fecha):bool{
 //Poner el array de errores, el nombre del campo para generar el error con la clave campo
 //function compruebaHora(String $horaInput, array &$errores, String $nombre):bool{
 //******************************************* */
-function compruebaHora(String $horaInput):bool {
+function compruebaHora(String $horaInput, array &$errores, string $nombre):bool {
     // Intenta convertir la hora a tiempo Unix
     $tiempoUnix = strtotime($horaInput);
 
@@ -58,12 +64,14 @@ function compruebaHora(String $horaInput):bool {
             // La hora es válida
             return true;
         } else {
+            $errores[$nombre]='<br>Error en el campo hora';
             // La hora no coincide con el formato H:i
             return false;
             //Crear el error
         }
     } else {
         // Error en la conversión de la hora
+        $errores[$nombre]='<br>Error en el campo hora';
         return false;
         //Crear el error
     }
