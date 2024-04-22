@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 include 'libs/bGeneral.php';
 include 'datos.php';
 $errores = [];
@@ -13,6 +15,14 @@ function creaSelect(array $array, String $nombre, String $titulo):void{
     echo "</select><br><br>";
 }
 
+//Comprobar si el valor del select está en el array, pasa el valor y el array y lo comprueba
+function existe_en_array(String $valorSelect, array $array):bool{
+    if(in_array($valorSelect, $array)){
+        return true;
+    } else {
+        return false;
+    }
+}
 
 //Comprobar fecha  correcta
 //*******HE DE HACER************************************ */
