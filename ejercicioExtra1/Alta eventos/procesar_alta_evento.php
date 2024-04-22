@@ -1,7 +1,8 @@
 <?php
 include 'funciones.php';
 if (!isset($_REQUEST['submit'])) {
-    header('Location: ejercicio.php');
+    // header('Location: ejercicio.php');
+    include 'altaEvento.php';
     exit;
 } else {
     $nombre_evento = recoge('nombre_evento');
@@ -28,7 +29,8 @@ if (!isset($_REQUEST['submit'])) {
     // echo "<br>";
     echo "<br>";
     if (!empty($errores)) {
-        header('Location: ejercicio.php');
+        // header('Location: ejercicio.php');
+        include 'altaEvento.php';
         exit;
     } else {
         echo "<p>Hora $hora </p>";
