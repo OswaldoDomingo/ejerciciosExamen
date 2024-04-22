@@ -6,7 +6,7 @@ include 'datos.php';
 $errores = [];
 
 //recoger el array, el nombre del select y el titulo
-function creaSelect(array $array, String $nombre, String $titulo):void{
+function creaSelect(array &$array, String $nombre, String $titulo):void{
     echo "<label for='$nombre'>$titulo:</label>
     <select id='$nombre' name='$nombre' >";
     foreach($array as $valor){
@@ -16,13 +16,22 @@ function creaSelect(array $array, String $nombre, String $titulo):void{
 }
 
 //Comprobar si el valor del select está en el array, pasa el valor y el array y lo comprueba
-function existe_en_array(String $valorSelect, array $array):bool{
+function existe_en_array(String $valorSelect, array &$array):bool{
     if(in_array($valorSelect, $array)){
         return true;
     } else {
         return false;
     }
 }
+//Manejar los errores. Si existe el error del nombre del input, devuelve el string con el error.
+function muestra_errores(array &$array, string $valor):string{
+    $resultado = "";
+    if(isset($array[$valor])){
+        $resultado = $array[$valor];
+    } 
+    return $resultado;
+}
+
 
 //Comprobar fecha  correcta
 //*******HE DE HACER************************************ */

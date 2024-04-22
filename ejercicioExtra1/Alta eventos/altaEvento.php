@@ -12,11 +12,13 @@
     <form action="procesar_alta_evento.php" method="post" enctype="multipart/form-data">
         <!-- Campo para el nombre del evento -->
         <label for="nombre_evento">Nombre del Evento:</label>
-        <input type="text" id="nombre_evento" name="nombre_evento"><br><br>
+        <input type="text" id="nombre_evento" name="nombre_evento"><br>
         <?php
-        echo (!empty($errores)) ? $errores['nombre_evento'] : "";
+        // echo (!empty($errores)) ? $errores['nombre_evento'] : "";
+        echo muestra_errores($errores, 'nombre_evento');
         ?>
-
+        <br>
+        <br>
         <!-- Campo para el tipo de evento -->
         <!-- <label for="tipo_evento">Tipo de Evento:</label>
     <select id="tipo_evento" name="tipo_evento" >
@@ -29,22 +31,26 @@
         <?php
         creaSelect($tipoEvento, 'tipo_evento', 'Tipo de Evento');
         ?>
-
+        <br>
         <!-- Campo para la fecha del evento -->
         <label for="fecha_evento">Fecha del Evento:</label>
         <input type="date" id="fecha_evento" name="fecha_evento">
         <?php
-        echo (!empty($errores)) ? $errores['fecha_evento'] : "";
+        echo muestra_errores($errores, 'fecha_evento');
+        // echo (!empty($errores)) ? $errores['fecha_evento'] : "";
         ?>
-
-        <br><br>
+        <br>
+        <br>
 
         <!-- Campo para la hora del evento -->
         <label for="hora_evento">Hora del Evento:</label>
-        <input type="time" id="hora_evento" name="hora_evento"><br><br>
+        <input type="time" id="hora_evento" name="hora_evento">
         <?php
-        echo (!empty($errores)) ? $errores['hora_evento'] : "";
+        echo muestra_errores($errores, 'hora_evento');
+        // echo (!empty($errores)) ? $errores['hora_evento'] : "";
         ?>
+        <br>
+        <br>
         <!-- Campo para la ubicación del evento -->
         <label for="ubicacion">Ubicación del Evento:</label>
         <input type="text" id="ubicacion" name="ubicacion"><br><br>
