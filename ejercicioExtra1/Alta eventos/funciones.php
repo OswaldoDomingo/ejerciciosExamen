@@ -1,8 +1,8 @@
 <?php
-declare(strict_types=1);
+// declare(strict_types=1);
 
-include 'libs/bGeneral.php';
-include 'datos.php';
+include ('libs/bGeneral.php');
+include ('datos.php');
 $errores = [];
 
 //recoger el array, el nombre del select y el titulo
@@ -39,7 +39,7 @@ function muestra_errores(array &$array, string $valor):string{
 //Poner el array de errores, el nombre del campo para generar el error con la clave campo
 //function compruebaHora(String $fechaInput, array &$errores, String $nombre):bool{
 //******************************************* */
-function compruebaFecha(String $fechaInput, array &$errores, $nombre):bool{
+function compruebaFecha(String $fechaInput, array &$errores, String $nombre):bool{
     //Comprobar si la fecha que recogemos es mayor que la de hoy
     $fechaActual = date("Y-m-d");
     //Comprueba fecha válida con la función creada fechaValida()
@@ -59,7 +59,8 @@ function compruebaFecha(String $fechaInput, array &$errores, $nombre):bool{
 
 function fechaValida(String $fecha):bool{
     if($fecha !== ''){
-        // El formato del input cuando lo recoge es de Año - mes - día (Y-m-d)
+        // El formato del input cuando lo recoge es de Año - mes - día (Y-m-d) 2024-04-23
+        // $anyo = 2024; $mes = 04, $dia=23
         list($anyo, $mes, $dia) = explode("-", $fecha);
         //Retorna true o false la forma de recoger los datos checkdate() es (m-d-Y) 
         return (checkdate((int)$mes, (int)$dia, (int)$anyo));

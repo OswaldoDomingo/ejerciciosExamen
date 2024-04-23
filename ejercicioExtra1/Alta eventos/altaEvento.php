@@ -30,6 +30,7 @@
     </select><br><br> -->
         <?php
         creaSelect($tipoEvento, 'tipo_evento', 'Tipo de Evento');
+        echo muestra_errores($errores, 'tipo_evento');
         ?>
         <br>
         <!-- Campo para la fecha del evento -->
