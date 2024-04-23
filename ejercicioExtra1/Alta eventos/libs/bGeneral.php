@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 /****
  * Librería con funciones generales y de validación
@@ -248,7 +248,7 @@ function cRadio(string $text, string $campo, array &$errores, array $valores, bo
  * 
  * @return boolean
  */
-function cSelect(string $text, string $campo, array &$errores, array $valores, bool $requerido = TRUE)
+function cSelect(string $text, string $campo, array &$errores, array &$valores, bool $requerido = TRUE)
 {
     if (array_key_exists($text, $valores)) {
         return true;

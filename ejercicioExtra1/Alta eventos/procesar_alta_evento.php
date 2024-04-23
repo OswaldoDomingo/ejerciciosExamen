@@ -1,5 +1,6 @@
 <?php
-include 'funciones.php';
+include ('funciones.php');
+include ('datos.php');
 
 
 if (!isset($_REQUEST['submit'])) {
@@ -12,7 +13,7 @@ if (!isset($_REQUEST['submit'])) {
 
     //Tipo de evento
     $valorTipoDeEvento = recoge('tipo_evento');
-    cSelect( $valorTipoDeEvento, 'tipo_evento', $errores, $tipoEvento);
+    cSelect($valorTipoDeEvento, 'tipo_evento', $errores, $tipoEvento);
 
     //Las funciones hechas por mí, podrían recoger el string del nombre del campo y 
     //ver si están vacías o llenas, devolverían true/false y rellenarían

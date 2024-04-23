@@ -1,5 +1,5 @@
 <?php
-    $tipoEvento = ["competencia", "entrenamiento", "torneo", "charla", "otros"];
+    $tipoEvento = array ("competencia", "entrenamiento", "torneo", "charla", "otros");
     
     $extensionesValidas = ["jpeg","gif","jpg", "png"];
 
