@@ -2,8 +2,8 @@
 include 'funciones.php';
 if (!isset($_REQUEST['submit'])) {
     // header('Location: ejercicio.php');
+    //exit;
     include 'altaEvento.php';
-    exit;
 } else {
     $nombre_evento = recoge('nombre_evento');
     cTexto($nombre_evento, 'nombre_evento', $errores);
@@ -19,6 +19,20 @@ if (!isset($_REQUEST['submit'])) {
     //Compruebo que la fecha y la hora esté bien
     compruebaHora($hora, $errores, 'hora_evento');
     compruebaFecha($fecha, $errores, 'fecha_evento');
+    
+    //Campo ubicación del evento
+    $ubicacion = recoge('ubicacion');
+    cTexto($ubicacion, 'ubicacion', $errores);
+
+    //Descripción del evento
+    $descripcion = recoge('descripcion');
+    cTexto($descripcion, 'descripcion', $errores);
+
+    //Subir imagen, se comprueba si se ha subido y da true si lo consigue
+    //El el archivo datos.php he puesto $extensionesValidas, $directorio, $max_file_size, se ha de cambiar el nombre por conf.php
+    //Al no ser obligada se pone false 
+
+    $imagen = cFile('imagen',$errores, $extensionesValidas, $directorio, $max_file_size, false);
 
     // echo "<br>";
     // echo compruebaHora($hora, $errores, 'hora_evento') ? "<br>Hora Bien" : "<br>Hora Mal";
@@ -30,11 +44,16 @@ if (!isset($_REQUEST['submit'])) {
     echo "<br>";
     if (!empty($errores)) {
         // header('Location: ejercicio.php');
+        //exit;
         include 'altaEvento.php';
-        exit;
+        echo "Error";
     } else {
         echo "<p>Hora $hora </p>";
         echo "<p>Hora $fecha </p>";
         echo "<p>$nombre_evento</p>";
+        echo "<p>$ubicacion</p>";
+        echo "<p>$descripcion</p>";
+        echo "<img src = '$imagen' >";
     }
+
 }

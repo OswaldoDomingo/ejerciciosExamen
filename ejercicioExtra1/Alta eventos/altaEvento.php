@@ -54,15 +54,21 @@
         <!-- Campo para la ubicación del evento -->
         <label for="ubicacion">Ubicación del Evento:</label>
         <input type="text" id="ubicacion" name="ubicacion"><br><br>
-
+        <?php
+        echo muestra_errores($errores, 'ubicacion');
+        ?>
         <!-- Campo para la descripción -->
         <label for="descripcion">Descripción:</label><br>
         <textarea id="descripcion" name="descripcion" rows="4" cols="50"></textarea><br><br>
-
+        <?php
+        echo muestra_errores($errores, 'descripcion');
+        ?>
         <!-- Campo para subir un archivo relacionado con el evento -->
         <label for="imagen">Subir imagen del evento (opcional):</label>
         <input type="file" id="imagen" name="imagen" accept="image/*"><br><br>
-
+        <?php
+        echo muestra_errores($errores, 'imagen');
+        ?>
         <!-- Botón de enviar -->
         <input type="submit" name="submit" value="Dar de Alta">
     </form>

@@ -23,6 +23,7 @@ function existe_en_array(String $valorSelect, array &$array):bool{
         return false;
     }
 }
+
 //Manejar los errores. Si existe el error del nombre del input, devuelve el string con el error.
 function muestra_errores(array &$array, string $valor):string{
     $resultado = "";
@@ -34,7 +35,7 @@ function muestra_errores(array &$array, string $valor):string{
 
 
 //Comprobar fecha  correcta
-//*******HE DE HACER************************************ */
+//*******HECHO 22/04/2024************************************ */
 //Poner el array de errores, el nombre del campo para generar el error con la clave campo
 //function compruebaHora(String $fechaInput, array &$errores, String $nombre):bool{
 //******************************************* */
@@ -68,7 +69,7 @@ function fechaValida(String $fecha):bool{
 }
 
 //Comprobar hora correcta
-//*******HE DE HACER************************************ */
+//*******HECHO 22/04/2024************************************ */
 //Poner el array de errores, el nombre del campo para generar el error con la clave campo
 //function compruebaHora(String $horaInput, array &$errores, String $nombre):bool{
 //******************************************* */
