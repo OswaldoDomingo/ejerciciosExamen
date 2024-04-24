@@ -99,11 +99,15 @@
         <br>
 
         <!-- Grupo de radio buttons -->
-        <label>Género:</label>
+        <!-- <label>Género:</label>
         <input type="radio" id="masculino" name="genero" value="masculino">
         <label for="masculino">Masculino</label>
         <input type="radio" id="femenino" name="genero" value="femenino">
-        <label for="femenino">Femenino</label><br>
+        <label for="femenino">Femenino</label> -->
+        <?php
+            crear_radio('genero', $valoresGenero, 'Género');
+        ?>
+        <br>
         <span class="error">
             <?php
             echo mostrar_errores($errores, 'genero');
@@ -112,13 +116,16 @@
         <br>
 
         <!-- Grupo de checkboxes -->
-        <label>Deportes que practica:</label><br>
+        <!-- <label>Deportes que practica:</label><br>
         <input type="checkbox" id="futbol" name="deportes[]" value="futbol">
         <label for="futbol">Fútbol</label><br>
         <input type="checkbox" id="baloncesto" name="deportes[]" value="baloncesto">
         <label for="baloncesto">Baloncesto</label><br>
         <input type="checkbox" id="tenis" name="deportes[]" value="tenis">
-        <label for="tenis">Tenis</label><br>
+        <label for="tenis">Tenis</label><br> -->
+        <?php
+            crear_checkbox('deportes', $valoresDeportes, 'Deportes que practica');
+        ?>
         <span class="error">
             <?php
             echo mostrar_errores($errores, 'deportes');

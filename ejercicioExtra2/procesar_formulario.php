@@ -15,7 +15,8 @@ if(!isset($_REQUEST['submit'])){
     $email = recoge('email');
     validar_correo($email, $errores);
     $nombreUsuario = recoge('username');
-    cTexto($nombreUsuario, 'username', $errores);
+    // cTexto($nombreUsuario, 'username', $errores);
+    cUser($nombre, 'username', $errores);
     //Valido contraseña solo mirando que tenga más de 8 caracteres
     $pass = $_REQUEST['password'];
     validar_password($pass, $errores);

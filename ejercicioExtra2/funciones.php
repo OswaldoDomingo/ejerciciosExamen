@@ -111,5 +111,18 @@ function validar_telefono(string $InputTelefono, &$errores, bool $requerido = tr
 
 }
 
+function crear_radio(String $name, array $listaRadio, String $titulo):void{
+    echo "<label>$titulo:</label>";
+    foreach ($listaRadio as $valor) {
+        echo "<input type='radio' id='$valor' name='$name' value='$valor'>
+        <label for='$valor'>" . ucfirst($valor) . "</label>";
+    }
+}
 
-
+function crear_checkbox(String $name, array $listaCheck, String $titulo):void{
+    echo "<label>$titulo:</label><br>";
+    foreach ($listaCheck as $valor) {
+        echo "<input type='checkbox' id='$valor' name='" . $name . "[]' value='$valor'>
+        <label for='$valor'>" . ucfirst($valor) . "</label><br>";
+    }
+}
