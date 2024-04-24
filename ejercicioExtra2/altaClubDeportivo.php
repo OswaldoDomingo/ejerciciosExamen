@@ -11,11 +11,21 @@
     
     <!-- Campo para el nombre -->
     <label for="nombre">Nombre:</label>
-    <input type="text" id="nombre" name="nombre" ><br><br>
+    <input type="text" id="nombre" name="nombre" ><br>
+    <?php
+        require_once('funciones.php');
+        require_once('config.php');
+        echo mostrar_errores($errores, 'nombre');
+    ?>
+    <br>
 
     <!-- Campo para el primer apellido -->
     <label for="apellido1">Primer Apellido:</label>
-    <input type="text" id="apellido1" name="apellido1" ><br><br>
+    <input type="text" id="apellido1" name="apellido1" ><br>
+    <?php
+     echo mostrar_errores($errores, 'apellido1');
+    ?>
+    <br>
 
     <!-- Campo para el segundo apellido -->
     <label for="apellido2">Segundo Apellido:</label>

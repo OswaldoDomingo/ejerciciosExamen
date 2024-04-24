@@ -1,4 +1,5 @@
 <?php
+$errores = [];
 
 $extensionesValidas = ["jpeg", "gif", "jpg", "png"];
 
