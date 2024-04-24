@@ -1,6 +1,6 @@
 <?php
 //validar correo
-function valida_correo(String $correo, array &$errores, bool $requerido = true):bool{
+function validar_correo(String $correo, array &$errores, bool $requerido = true):bool{
     //Si no es requerido devuelve true
     if (!$requerido && empty($correo)) {
         return true; // Permitir entrada vacía si no es requerida
@@ -14,7 +14,7 @@ function valida_correo(String $correo, array &$errores, bool $requerido = true):
 }
 
 //Fecha de nacimiento válida y mayor de 14 años
-function valida_fecha($fechaInput, &$errores, bool $requerido=TRUE):bool{
+function validar_fecha($fechaInput, &$errores, bool $requerido=TRUE):bool{
     $fechaValida = false;
     
     //Si no es requerido devuelve true
@@ -69,6 +69,46 @@ function mostrar_errores(array $errores, string $campoInput):String{
         return $errores[$campoInput];
     }
         return "";
+}
+
+function validar_password(String $password, &$errores, bool $requerido=true):bool{
+    //Si no es requerido devuelve true
+    if (!$requerido && empty($password)) {
+        return true; // Permitir entrada vacía si no es requerida
+    }
+     // Si es requerido y el campo está vacío, devuelve false
+     if ($requerido && empty($password)) {
+        $errores['password'] = "La contraseña no puede estar vacía";
+        return false;
+    }
+    //La contraseña ha de tener mínimo 8 caracteres
+    if(mb_strlen($password) >= 8){
+        $errores['password'] = "La contraseña es correcta";
+        return true;
+    } else {
+        $errores['password'] = "La contraseña no cumple con los requisitros";
+        return false;
+    }
+}
+
+function validar_telefono(string $InputTelefono, &$errores, bool $requerido = true):bool{
+    //Si no es requerido devuelve true
+    if (!$requerido && empty($InputTelefono)) {
+        return true; // Permitir entrada vacía si no es requerida
+    }
+    // Si es requerido y el campo está vacío, devuelve false
+    if ($requerido && empty($InputTelefono)) {
+        $errores['telefono'] = "Error en el teléfono, ha de rellenarse";
+        return false;
+    }
+    //El teléfono ha de ser un número entero de 9 cifras, sin espacios enmedio
+    if(ctype_digit($InputTelefono) && (mb_strlen($InputTelefono) === 9)){
+        return true;
+    } else {
+        $errores['telefono'] = "Error en el teléfono";
+        return false;
+    }
+
 }
 
 

@@ -13,13 +13,26 @@ if(!isset($_REQUEST['submit'])){
     $apellido2 = recoge('apellido2');
     cTexto($apellido2, 'apellido2', $errores);
     $email = recoge('email');
-    valida_correo($email, $errores);
+    validar_correo($email, $errores);
+    $nombreUsuario = recoge('username');
+    cTexto($nombreUsuario, 'username', $errores);
+    //Valido contraseña solo mirando que tenga más de 8 caracteres
+    $pass = $_REQUEST['password'];
+    validar_password($pass, $errores);
     $fecha_nacimiento = recoge('fecha_nacimiento');
-    valida_fecha($fecha_nacimiento, $errores);
+    validar_fecha($fecha_nacimiento, $errores);
+    $telefono = recoge('telefono');
+    validar_telefono($telefono, $errores);
+    $genero = recoge('genero');
+    cRadio($genero, 'genero', $errores, $valoresGenero);
 
+    $deportesSeleccionados = $_POST['deportes'] ?? []; // Usando operador de fusión de null para manejar el caso de que el array no esté definido
+    cCheck($deportesSeleccionados, 'deportes' , $errores, $valoresDeportes);
+
+    
     cFile('foto', $errores, $extensionesValidas, $directorio, $max_file_size, false);
-
-
+    
+    
     if(count($errores) === 0){
         echo "Pasado";
     } else {
