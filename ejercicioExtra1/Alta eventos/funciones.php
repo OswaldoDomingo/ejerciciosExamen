@@ -6,7 +6,7 @@ include ('datos.php');
 $errores = [];
 
 //recoger el array, el nombre del select y el titulo
-function creaSelect(array &$array, String $nombre, String $titulo):void{
+function creaSelect(array $array, String $nombre, String $titulo):void{
     echo "<label for='$nombre'>$titulo:</label>
     <select id='$nombre' name='$nombre' >";
     foreach($array as $valor){

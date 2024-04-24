@@ -248,9 +248,10 @@ function cRadio(string $text, string $campo, array &$errores, array $valores, bo
  * 
  * @return boolean
  */
-function cSelect(string $text, string $campo, array &$errores, array &$valores, bool $requerido = TRUE)
+function cSelect(string $text, string $campo, array &$errores, array $valores, bool $requerido = TRUE)
 {
-    if (array_key_exists($text, $valores)) {
+    // if (array_key_exists($text, $valores)) {
+    if (in_array($text, $valores)) {
         return true;
     }
     if (!$requerido && $text == "") {

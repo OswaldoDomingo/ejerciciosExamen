@@ -26,7 +26,8 @@ if(!isset($_REQUEST['submit'])){
     $genero = recoge('genero');
     cRadio($genero, 'genero', $errores, $valoresGenero);
 
-    $deportesSeleccionados = $_POST['deportes'] ?? []; // Usando operador de fusión de null para manejar el caso de que el array no esté definido
+    //$deportesSeleccionados = $_POST['deportes'] ?? []; // Usando operador de fusión de null para manejar el caso de que el array no esté definido
+    $deportesSeleccionados = recogeArray('deportes');
     cCheck($deportesSeleccionados, 'deportes' , $errores, $valoresDeportes);
 
     
