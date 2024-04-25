@@ -9,6 +9,7 @@ $genero = recoge('genero');
 $telefono = recoge('telefono');
 $imagen = recoge('imagen');
 $deportes = recoge('deportes');
+$tipo = $_REQUEST['tipo'];
 
 echo $nombre;
 echo "<br>";
@@ -19,6 +20,8 @@ echo "<br>";
 echo $genero;
 echo "<br>";
 echo $telefono;
+echo "<br>";
+echo $tipo;
 echo "<br>";
 $deportes = recoge('deportes');
 echo strlen($deportes);
@@ -34,6 +37,7 @@ if($imagen != 1){
     echo "<img src='$imagen' >";
 }
 echo "<br>";
+
 
 
 ?>
