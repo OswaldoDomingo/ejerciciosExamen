@@ -83,7 +83,6 @@ function validar_password(String $password, &$errores, bool $requerido=true):boo
     }
     //La contraseña ha de tener mínimo 8 caracteres
     if(mb_strlen($password) >= 8){
-        $errores['password'] = "La contraseña es correcta";
         return true;
     } else {
         $errores['password'] = "La contraseña no cumple con los requisitros";
