@@ -40,11 +40,13 @@ if(!isset($_REQUEST['submit'])){
         
         $imagen = cFile('foto', $errores, $extensionesValidas, $directorio, $max_file_size, false);
         //Si no se generó ningún error en el archivo
+        
         if(empty($errores)){
             $nombreCompleto = $nombre . " " . $apellido1 . " " . $apellido2;
             // $serialized_deportes = urlencode(implode(",", $deportesSeleccionados));
             $serialized_deportes = serialize($deportesSeleccionados);
-            header("Location:correcto.php?nombre=$nombreCompleto&email=$email&usuario=$nombreUsuario&fechaNacimiento=$fecha_nacimiento&genero=$genero&telefono=$telefono&imagen=$imagen&deportes=$deportesSeleccionados");
+
+            header("Location:correcto.php?nombre=$nombreCompleto&email=$email&usuario=$nombreUsuario&fechaNacimiento=$fecha_nacimiento&genero=$genero&telefono=$telefono&imagen=$imagen& deportes=$serialized_deportes");
             exit;
 
         } else {

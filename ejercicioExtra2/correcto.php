@@ -20,15 +20,22 @@ echo $genero;
 echo "<br>";
 echo $telefono;
 echo "<br>";
-$deportes = recoge('deportes');
-echo strlen($deportes);
-foreach(unserialize($deportes) as $deporte){
+// echo $tipo . "-> Array";
+// echo "<br>";
+// echo $tipoSerialize . "-> Serialize";
+// echo "<br>";
+// print_r($array);
+// echo "<br>";
+echo "Deportes que practica: ";
+echo "<br>";
+//echo strlen($deportes);
+$resultado=unserialize($deportes);
+
+foreach($resultado as $deporte){
     echo $deporte;
+    echo "<br>";
 }
-// echo $deportes;
-// $serialiced_data = urldecode($deportes);
-// $arrayDeportes = explode(",", $serialiced_data);
-// print_r($arrayDeportes);
+
 echo "<br>";
 if($imagen != 1){
     echo "<img src='$imagen' >";
