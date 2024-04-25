@@ -9,7 +9,6 @@ $genero = recoge('genero');
 $telefono = recoge('telefono');
 $imagen = recoge('imagen');
 $deportes = recoge('deportes');
-$tipo = $_REQUEST['tipo'];
 
 echo $nombre;
 echo "<br>";
