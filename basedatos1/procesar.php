@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once("./libs/bGeneral.php");
 require_once("./libs/funciones.php");
 require_once("./libs/conexion.php");
@@ -27,6 +28,7 @@ if (!isset($_REQUEST["enviar"])) {
         if (mysqli_num_rows($resultado) > 0) {
             //El DNI ya existe
             echo "Ya existe usuario con ese DNI";
+            echo "<br><a href='formulario.php'> Regresa al formulario.</a>";
         } else {
 
             if (mysqli_query($conexion, $sqlInsertar)) {
@@ -38,6 +40,11 @@ if (!isset($_REQUEST["enviar"])) {
         }
         mysqli_close($conexion);
     } else {
-        include("formulario.php");
+        // $lista_errores = serialize($errores);
+        // include("formulario.php");
+        $_SESSION['errores'] = $errores; //Guardar los errores en variable de sesión
+        // header("Location:formulario.php?errores=$lista_errores");
+        header("Location:formulario.php");
+
     }
 }

@@ -6,7 +6,7 @@ $bdatos = "ejercicio1";
 $conexion = mysqli_connect($servidor, $usuario, $pass);
 
 if(!$conexion){
-    echo "Error";
+    echo "Error de conexión a la base de datos";
 } else {
     $sql = "CREATE DATABASE IF NOT EXISTS $bdatos";
     if(mysqli_query($conexion, $sql)){
