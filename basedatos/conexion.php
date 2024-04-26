@@ -12,7 +12,7 @@ try {
     $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     // Establecer el juego de caracteres UTF-8
     $conexion->exec("SET CHARACTER SET utf8");
-    echo "Conexión exitosa";
+    // echo "Conexión exitosa";
 } catch (PDOException $e) {
     echo "Error de conexión: " . $e->getMessage();
 }
