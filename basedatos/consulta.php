@@ -4,6 +4,7 @@ $salario = "salario";
 $dinero = 25000;
 $mayor = ">";
 $menor = "<";
+$igual = "=";
 
 try {
     // Preparar y ejecutar la consulta

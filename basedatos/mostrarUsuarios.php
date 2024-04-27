@@ -15,7 +15,7 @@ if (count($resultados) > 0) {
             <th>Salario</th>
             <th>Localidad</th>
         </tr>";
-    
+
     foreach ($resultados as $fila) {
         echo "<tr>";
         // echo "<td>" . $fila['id'] . "</td>";
@@ -32,7 +32,4 @@ if (count($resultados) > 0) {
     // Si no se encontraron resultados
     echo "No se encontraron registros";
 }
-
-
-
 ?>
