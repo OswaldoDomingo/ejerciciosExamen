@@ -3,15 +3,19 @@
 - Ejercicio1.- Realiza un script que cargue todos los datos de la tabla empleados y los muestre en pantalla incluyendo una línea separadora entre cada uno de ellos. 
     - Crear archivo [conexion.php](conexion.php)
     - Crear la consulta en el archivo [consulta.php](consulta.php)
-    - Muestro los usuarios en el archivo [mostrarUsuarios.php](mostrarUsuarios.php)
+    - Muestro los usuarios en el archivo [mostrarUsuarios.php](mostrarUsuarios.php) 
+    - He creado una tabla.
 
 
 - Ejercicio 2.- Crea una tabla localidades con dos campos id_localidad y localidad, añade un campo localidad en la tabla empleados de manera que sea clave ajena referenciando a id_localidad.  Añade varios registros a la tabla
 Crea una página con un formulario para dar de alta usuarios donde la localidad será un desplegable con las localidades a elegir (debe mostrar el nombre de la localidad y guardar el id_localidad).
    - Sigo desde el ejercicio1 
-   - [crearLocalidad.php](crearLocalidad.php)
+   - Creo la tabla de localidades y la inserto también en la tabla usuarios [crearLocalidad.php](crearLocalidad.php)
    - [insertar.php](insertar.php) para introducir registros de usuarios, las localidades de los usuarios las he introducido manualmente
-   - Creo el [formularioEmpleados.php](formularioEmpleado.php) 
+   - Creo el [formularioEmpleados.php](formularioEmpleado.php)
+        - He creado en [funcionesBD.php](funcionesBD.php) una función **consultaSelect(\$conexion)** con la cual hago la consulta a la base de datos y me devuelve el array de la consulta. Como valor de entrada he puesto la conexion de <a href='conexion.php'> conexion.php</a>
+        Este array lo pongo en la función **pintaSelect (array \$valores, string \$name)** de [bComponentes.php](libs/bComponentes.php)
+        De esta manera creo el select **pintaSelect(consultaSelect($conexion), 'localidades');** 
 
 - Ejercicio 3.- Procesa los datos del formulario anterior, de manera que si son correctos se dé de alta en la BD el nuevo empleado. Si el alta ha tenido éxito pasaremos a una nueva página de bienvenida.
    - Creo [procesaFormulario.php]procesaFormulario.php para procesar los datos que se envían desde el formulario, si hay errores los paso por session() a la página de [formularioEmpleado.php](formularioEmpleado.php) y si está bien es añadirlo a la base de datos y enviar a [fichaEmpleado.php](fichaEmpleado.php)  todos los datos y que se vean en ese archivo.
