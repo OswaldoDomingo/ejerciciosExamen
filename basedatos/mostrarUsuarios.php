@@ -13,6 +13,7 @@ if (count($resultados) > 0) {
             <th>Puesto</th>
             <th>Fecha de Nacimiento</th>
             <th>Salario</th>
+            <th>Localidad</th>
         </tr>";
     
     foreach ($resultados as $fila) {
@@ -22,6 +23,7 @@ if (count($resultados) > 0) {
         echo "<td>" . $fila['puesto'] . "</td>";
         echo "<td>" . $fila['fecha_nacimiento'] . "</td>";
         echo "<td>" . $fila['salario'] . "</td>";
+        echo "<td>" . $fila['localidad'] . "</td>";
         echo "</tr>";
     }
     
