@@ -45,6 +45,7 @@ if(!isset($_REQUEST['enviar'])){
             //Paso los valores del usuariuo por una variable de session 
             $nuevo_usuario = ['nombre'=>$nombre, 'puesto'=>$puesto, 'fecha'=>$fecha, 'salario'=>$salario, 'localidad'=>$localidad];
             $_SESSION['nuevo_usuario'] = $nuevo_usuario;
+            $_SESSION['formulario_procesado'] = true;
             header("Location:fichaEmpleado.php");
         } else {
             $errores['insertar'] = "Se ha producido un error al insertar los datos";
