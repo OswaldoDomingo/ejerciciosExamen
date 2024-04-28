@@ -1,5 +1,4 @@
 <?php
-// include 'conexion.php';
 include 'consulta.php';
 
 // Verificar si se obtuvieron resultados

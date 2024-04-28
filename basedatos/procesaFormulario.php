@@ -42,6 +42,9 @@ if(!isset($_REQUEST['enviar'])){
         $sqlInsertar->bindParam(':localidad', $localidad);
         if($sqlInsertar->execute()){
             //Si no hay error pasar a fichaEmpleado.php
+            //Paso los valores del usuariuo por una variable de session 
+            $nuevo_usuario = ['nombre'=>$nombre, 'puesto'=>$puesto, 'fecha'=>$fecha, 'salario'=>$salario, 'localidad'=>$localidad];
+            $_SESSION['nuevo_usuario'] = $nuevo_usuario;
             header("Location:fichaEmpleado.php");
         } else {
             $errores['insertar'] = "Se ha producido un error al insertar los datos";

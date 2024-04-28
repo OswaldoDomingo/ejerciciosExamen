@@ -18,10 +18,14 @@ Crea una página con un formulario para dar de alta usuarios donde la localidad 
         De esta manera creo el select **pintaSelect(consultaSelect($conexion), 'localidades');** 
 
 - Ejercicio 3.- Procesa los datos del formulario anterior, de manera que si son correctos se dé de alta en la BD el nuevo empleado. Si el alta ha tenido éxito pasaremos a una nueva página de bienvenida.
-   - Creo <a href="procesaFormulario.php">procesaFormulario.php</a> para procesar los datos que se envían desde el formulario, si hay errores los paso por session() $_SESSION['errores] a la página de [formularioEmpleado.php](formularioEmpleado.php) que la recoge y la muewstra cin un **foreach()**. 
+   - Creo <a href="procesaFormulario.php">procesaFormulario.php</a> para procesar los datos que se envían desde el formulario, si hay errores los paso por session() $_SESSION['errores] a la página de [formularioEmpleado.php](formularioEmpleado.php) que la recoge y la muestra con un **foreach()**. 
    Si está bien es añadirlo a la base de datos y envia a [fichaEmpleado.php](fichaEmpleado.php)  todos los datos y que se vean en ese archivo.
     - 28/04/2024 Creada la consulta cuando recoge los datos para insertarlos
     - 28/04/2024 Si se insertan los datos y no hay errores se pasa a la página [fichaEmpleado.php](fichaEmpleado.php) 
         - Si hay errores, se crea un error en el array y se pone en la variable de sesión de los errores.
+    - 28/04/2024 En [fichaEmpleado.php](fichaEmpleado.php) creo una consulta para leer el último registro de empleado y lo muestro.
+    - Creo enlace para volver a [formularioEmpleados.php](formularioEmpleado.php)
+
 
 - Ejercicio 4.- Realiza un script que cargue los datos de la tabla empleados utilizando Singleton.
+    - Ver apuntes
