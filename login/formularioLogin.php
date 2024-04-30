@@ -1,4 +1,5 @@
-<form action="autenticar.php" methop="post">
+<!-- formularioLogin.php -->
+<form action="autenticar.php" method="post">
     <label for="usuario">Usuario</label>
     <input type="text" name="usuario" id="usuario">
     <br>
