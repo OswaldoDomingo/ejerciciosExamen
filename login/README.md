@@ -10,6 +10,7 @@ En este ejercicio de hace un login para conmtrolar el acceso de usuarios
 - Usuario nivel 3 Administrador
     - usuario: administrador, password: 1234
 
+Si no hay errores al validar el usuario y la contraseña, se da permiso guardado en la base de datos y entra a la página personal.
 Según el nivel de usuario accede con diferente nivel pasado por una variable de sesión.
 Cuando se vuelve a la página de inicio se borra el nivel con el que se ha entrado.
 
