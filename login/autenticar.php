@@ -15,6 +15,11 @@ $errores = [];
 if (isset($_POST['enviar'])) {
     $usuario = recoge('usuario');
     $password = recoge('password');
+    //pasar las variables por cTexto() y si no hay errores seguir
+    cTexto($usuario, 'usuario', $errores);
+    cTexto($password, 'password', $errores);
+    
+    if(empty($errores)){
 
     // Encriptar la contraseña ingresada por el usuario
     $password_encriptada = encriptar($password);
@@ -34,13 +39,18 @@ if (isset($_POST['enviar'])) {
         $_SESSION['permisos_id'] = $usuario_bd['permisos_id'];
         
         //Redirigir a página personal
-        header("Location: pagina_personal.php");
+        header("Location:pagina_personal.php");
         exit; // Importante salir del script después de redirigir
      } else {
          // Si el usuario no existe o la contraseña es incorrecta, mostrar un mensaje de error
          $errores['login'] = "Usuario o contraseña incorrectos";
          $_SESSION['error_login']=$errores['login'];
-         header("Location: index.php");
+         header("Location:index.php");
          exit; // Importante salir del script después de redirigir
     }
+} else {
+    $_SESSION['error_login']=$errores['login'];
+    header("Location:index.php");
+    exit; // Importante salir del script después de redirigir
+}
 }
