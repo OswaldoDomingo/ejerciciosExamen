@@ -2,8 +2,8 @@
 function conexion(){
     $servidor="localhost";
     $base_datos = "pruebas";
-    $usuario = "prebas";
-    $password = "prebas";
+    $usuario = "pruebas";
+    $password = "pruebas";
 
     $dns = "mysql:host=$servidor;dbname=$base_datos;charset=utf8";
 

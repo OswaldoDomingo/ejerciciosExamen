@@ -5,7 +5,7 @@
     <br>
     <br>
     <label for="password">Contraseña: </label>
-    <input type="password" name="password" id="password">
+    <input type="password" name="password" id="password" value="1234">
     <br>
     <br>
     <input type="submit" value="Enviar" name="enviar">
