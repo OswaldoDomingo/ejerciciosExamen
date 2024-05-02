@@ -31,3 +31,9 @@
 7. **Estilo y Diseño:**
    - Aplica estilos CSS para hacer que se vea atractiva y fácil de usar.
    - Utilizar un diseño receptivo para que la aplicación sea accesible desde dispositivos móviles.
+
+## Añadir
+8. **Imagen de usuario:**
+   - Crear un campo para añadir la imagen del usuario.
+   - Crear un input file para subir archivo imagen de usuario
+   
