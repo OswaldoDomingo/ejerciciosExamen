@@ -1,5 +1,5 @@
 <?php
-require_once("bGeneral.php");
+// require_once("../database/conexion.php");
 
 function valida_correo(String $correo, String $campo, array &$errores): bool
 {
@@ -67,5 +67,24 @@ function alta_usuario(object $conexion, String $nombre, String $correo, String $
     } catch (PDOException $e) {
         error_log($e->getMessage() . microtime() . PHP_EOL, 3, "logerr.txt");
         $errores['alta_usuario'] = "Error al dar de alta al usuario.";
+    }
+}
+
+function validar_password(String $password, &$errores, bool $requerido=true):bool{
+    //Si no es requerido devuelve true
+    if (!$requerido && empty($password)) {
+        return true; // Permitir entrada vacía si no es requerida
+    }
+     // Si es requerido y el campo está vacío, devuelve false
+     if ($requerido && empty($password)) {
+        $errores['password'] = "La contraseña no puede estar vacía";
+        return false;
+    }
+    //La contraseña ha de tener mínimo 8 caracteres
+    if(mb_strlen($password) >= 4){
+        return true;
+    } else {
+        $errores['password'] = "La contraseña no cumple con los requisitros";
+        return false;
     }
 }

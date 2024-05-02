@@ -1,4 +1,4 @@
-<form method="post" action="../procesar_nuevo_usuario.php">
+<form method="post" action="procesar_nuevo_usuario.php" class="alta-usuario">
     <label for="nombre">Nombre: </label>
     <input type="text" name="nombre" id="nombre">
     <br><br>

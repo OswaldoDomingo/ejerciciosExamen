@@ -22,7 +22,7 @@ $error=[];
         unset($_SESSION["error_login"]);
     ?>
     <h3 class="centrar-texto">Si no estas registrado</h3>
-    <p class="centrar-texto"> <a href="./vistas/formulario_nuevo_usuario.php">Entra</a> a crear una cuenta.</p>
+    <p class="centrar-texto"> <a href="./alta_usuario.php">Entra</a> a crear una cuenta.</p>
     <p class="centrar-texto">Aquí podría aparecer una cita de las públicas.</p>
     <div class="caja-cita">
         <p class="centrar-texto">Uno de los aspectos más desgraciados de nuestra era es que ya no tenemos buhardillas ni sótanos donde guardar el pasado.</p>

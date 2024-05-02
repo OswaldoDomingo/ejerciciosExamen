@@ -75,3 +75,8 @@ input[type=password]{
     width: 70%;
     border: 1px solid black;
 }
+
+.alta-usuario{
+    width: 60%;
+    margin: 20px auto;
+}
