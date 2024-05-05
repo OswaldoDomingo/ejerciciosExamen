@@ -67,6 +67,7 @@ function alta_usuario(object $conexion, String $nombre, String $correo, String $
     } catch (PDOException $e) {
         error_log($e->getMessage() . microtime() . PHP_EOL, 3, "logerr.txt");
         $errores['alta_usuario'] = "Error al dar de alta al usuario.";
+        return false;
     }
 }
 

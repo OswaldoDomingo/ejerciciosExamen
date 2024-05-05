@@ -1,0 +1,4 @@
+SQLSTATE[HY000]: General error: 1364 Field 'usuario_imagen' doesn't have a default value0.62786700 1714723088
+SQLSTATE[HY000]: General error: 1364 Field 'usuario_imagen' doesn't have a default value0.97628400 1714723142
+SQLSTATE[HY000]: General error: 1364 Field 'usuario_imagen' doesn't have a default value0.09654800 1714723229
+SQLSTATE[HY000]: General error: 1364 Field 'usuario_imagen' doesn't have a default value0.68959400 1714723274

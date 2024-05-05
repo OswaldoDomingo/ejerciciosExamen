@@ -3,6 +3,8 @@ session_start();
 require_once("./database/conexion.php");
 require_once("./libs/bGeneral.php");
 require_once("./libs/funciones.php");
+require_once("./configuracion/config.php");
+
 $conexion = conexion();
 
 $errores = [];
@@ -14,7 +16,7 @@ if (!isset($_REQUEST["nuevo_usuario"])) {
     $nombre = recoge('nombre');
     $password = recoge('password');
     $correo = recoge('correo');
-
+    
     cTexto($nombre, 'correo', $errores);
     valida_correo($correo, 'correo', $errores);
     validar_password($password, $errores);
@@ -26,7 +28,12 @@ if (!isset($_REQUEST["nuevo_usuario"])) {
         //Si todo está correcto proceder al alta, toda alta tiene nivel 2 y se ha de poner de manera automática.
         if (empty($errores)) {
             alta_usuario($conexion, $nombre, $correo, $password, $errores);
-            echo "Todo bien por ahora";
+            //Se crea un array con los datos del usuario
+            $array_usuario = ['nombre'=>$nombre, 'correo'=>$correo, 'nivel'=>2];
+            //Ponemos en una variable de sasión los datos del usuario
+            $_SESSION['usuario']=$array_usuario;
+            // echo "Todo bien por ahora";
+            header("Location:sitio_usuario.php");
         } else {
             $_SESSION['error_alta_usuario1'] = $errores['alta_correo'];
             $_SESSION['errores'] = $errores;

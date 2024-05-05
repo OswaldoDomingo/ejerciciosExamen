@@ -2,6 +2,7 @@
 session_start();
 // procesar_login.php
 require_once("./libs/bGeneral.php");
+require_once("./libs/funciones.php");
 require_once("./database/conexion.php");
 
 $errores=[];
@@ -19,7 +20,9 @@ if(empty($_REQUEST["usuario"]) || empty($_REQUEST["password"])){
     $usuario = recoge("usuario");
     $password = recoge("password");
     cTexto($usuario, 'usuario', $errores);
-    //cTexto($password, 'password', $errores);
+    validar_password($password, $errores);
+    
+    
     if (empty($errores)) {
         try {
             // Establecer conexión a la base de datos
