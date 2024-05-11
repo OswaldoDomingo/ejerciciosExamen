@@ -28,12 +28,12 @@ if(isset($_GET['ctl']) && isset($mapa[$_GET['ctl']])){
     <link rel="stylesheet" href="vistas/css/estilos.css">
 </head>
 <body>
-
+<div class="cuerpo">
     <?php
     // require_once __DIR__ . "/vistas/" . $mapa[$ruta];
     require_once __DIR__ . DIRECTORY_SEPARATOR . "vistas" . DIRECTORY_SEPARATOR . $mapa[$ruta];
 
     ?>
-
+</div>
 </body>
 </html>
