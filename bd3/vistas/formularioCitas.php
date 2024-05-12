@@ -1,5 +1,6 @@
 <form action="" method="post">
-    <label for="cita"></label>
+    <label for="cita">Escribe tu cita: </label>
+    <br>
     <textarea name="cita" id="cita"></textarea>
     <br>
     <br>
