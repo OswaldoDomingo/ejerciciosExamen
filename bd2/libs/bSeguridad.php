@@ -9,7 +9,7 @@ function encriptar($password, $cost=10) {
         return password_hash($password, PASSWORD_DEFAULT, ['cost' => $cost]);
 }
     
-function comprobarhash($pass, $passBD) {
+function comprobarhash($password, $passBD) {
         // Primero comprobamos si se ha empleado una contraseña correcta:
         return password_verify($password, $passBD);
 }

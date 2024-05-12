@@ -1,6 +1,6 @@
 <?php
 try{
-include("libs\config.php");
+include("libs\classConfig.php");
 include("modelo\classEmpleado.php");
 include("libs\bGeneral.php");
 include("libs\bComponentes.php");

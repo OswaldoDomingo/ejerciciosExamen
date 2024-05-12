@@ -10,7 +10,7 @@ try{
     if (isset($_REQUEST['enviar'])){
     $user=recoge('user');
     $pass=recoge('pass');
-    require ('libs/config.php');
+    require ('./libs/classConfig.php');
 
     require ('modelo/classEmpleado.php');
     $empleado=new empleado();

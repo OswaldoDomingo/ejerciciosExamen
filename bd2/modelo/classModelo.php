@@ -1,5 +1,5 @@
 <?php
-include ('../libs/classConfig.php');
+include_once ('./libs/classConfig.php');
 
 class modelo extends PDO
 {
