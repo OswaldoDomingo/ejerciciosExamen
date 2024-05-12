@@ -1,4 +1,5 @@
 <?php
+//modelo\classModelo.php
 require_once("../libs/classConfig.php");
 
 class Modelo extends PDO{
@@ -10,7 +11,7 @@ class Modelo extends PDO{
         
         parent::setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        parent::exec('');
+        // parent::exec('');
 
     }
     
