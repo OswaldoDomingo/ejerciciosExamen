@@ -7,19 +7,12 @@
 </head>
 <body>
     <h1>Citas</h1>
-    <?php
-        require_once("model/modeloConexion.php");
-
-        $verCitas = new ModeloConexion();
-        $array = $verCitas->verCitasPorVista(2);
-
-        // print_r($array);
-        foreach($array as $clave){
-            // if($clave['cita_visible'] == 2 ){
-                echo $clave['cita_texto'] . "<br><b>Autor: " . $clave['cita_autor'] . "</b><br>";
-            // }
-        }
-
-    ?>
+    <?php 
+    session_start();
+    if(isset($_SESSION['usuario'])){
+        $_SESSION['usuario']=0;
+    }
+    ?>    
+    <a href="view/verCitas.php">Ver Citas</a>
 </body>
 </html>
