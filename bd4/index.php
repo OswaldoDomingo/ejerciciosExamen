@@ -12,7 +12,9 @@
     if(isset($_SESSION['usuario'])){
         $_SESSION['usuario']=0;
     }
-    ?>    
+    ?>
+    <a href="view/loginFormulario.php">Inicia sesión.</a>
+    <br>
     <a href="view/verCitas.php">Ver Citas</a>
 </body>
 </html>
