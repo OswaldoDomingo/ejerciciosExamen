@@ -11,7 +11,7 @@
     session_start();
     if(isset($_SESSION['usuario'])){
         $_SESSION['usuario']=0;
-    }
+    } 
     ?>
     <a href="view/loginFormulario.php">Inicia sesión.</a>
     <br>

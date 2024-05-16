@@ -44,10 +44,10 @@ class ModeloLogin{
             $stmt=$this->conexion->prepare($consulta);
             $stmt->execute();
             $resultado = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            // $_SESSION['usuario'] = $resultado[0]['usuario_nombre'];
-            // $_SESSION['correo'] = $resultado[0]['usuario_correo'];
-            // $_SESSION['imagen'] = $resultado[0]['usuario_imagen'];
-            // $_SESSION['nivel'] = $resultado[0]['usuario_nivel'];
+            $_SESSION['usuario'] = $resultado[0]['usuario_nombre'];
+            $_SESSION['correo'] = $resultado[0]['usuario_correo'];
+            $_SESSION['imagen'] = $resultado[0]['usuario_imagen'];
+            $_SESSION['nivel'] = $resultado[0]['usuario_nivel'];
             return $resultado;                                                                                                                                      
     } catch(PDOException $e){
         echo "Error " . $e->getMessage();
@@ -55,6 +55,12 @@ class ModeloLogin{
     }
 
 }
+
+    function cerrarSesion(){
+        session_unset();
+        session_destroy();
+        
+    }
 
 
 }
