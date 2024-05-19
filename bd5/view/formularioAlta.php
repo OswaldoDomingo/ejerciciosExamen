@@ -22,5 +22,5 @@
     <input type="submit" value="Registrarse">
     <br>
     <br>
-    <a href="login.php">Iniciar sesión</a>
+    <a href="../index.php">Iniciar sesión</a>
 </form>
