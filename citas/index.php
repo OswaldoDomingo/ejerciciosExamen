@@ -6,6 +6,12 @@
     <title>Citas</title>
 </head>
 <body>
+    <h1>Bienvenido a Citas</h1>
+
+    <?php
+    require_once __DIR__ . '/model/config.php';
     
+    
+    ?>
 </body>
 </html>
