@@ -4,8 +4,11 @@ require_once __DIR__ . '/../app/libs/Config.php';
 require_once __DIR__ . '/../app/libs/bGeneral.php';
 require_once __DIR__ . '/../app/libs/bSeguridad.php';
 require_once __DIR__ . '/../app/modelo/classModelo.php';
-require_once __DIR__ . '/../app/modelo/classBiblioteca.php';
-require_once __DIR__ . '/../app/controlador/Controller.php';
+// require_once __DIR__ . '/../app/modelo/classBiblioteca.php';
+// require_once __DIR__ . '/../app/controlador/Controller.php';
+require_once __DIR__ . '/../app/controlador/classCitas.php';
+
+
 
 session_start(); // Se inicia la sesion
 //Este logueado o no el usuario, siempre tendra un nivel_usuario
