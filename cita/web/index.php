@@ -1,12 +1,11 @@
 <?php
-
+//index.php
 require_once __DIR__ . '/../app/libs/Config.php';
 require_once __DIR__ . '/../app/libs/bGeneral.php';
 require_once __DIR__ . '/../app/libs/bSeguridad.php';
 require_once __DIR__ . '/../app/modelo/classModelo.php';
-// require_once __DIR__ . '/../app/modelo/classBiblioteca.php';
-// require_once __DIR__ . '/../app/controlador/Controller.php';
-require_once __DIR__ . '/../app/controlador/classCitas.php';
+require_once __DIR__ . '/../app/controlador/Controller.php';
+require_once __DIR__ . '/../app/modelo/classCitas.php';
 
 
 
@@ -25,16 +24,9 @@ if (!isset($_SESSION['nivel_usuario'])) {
 $map = array(
     'home' => array('controller' => 'Controller', 'action' => 'home', 'nivel_usuario' => 0),
     'inicio' => array('controller' => 'Controller', 'action' => 'inicio', 'nivel_usuario' => 0),
-    // 'salir' => array('controller' => 'Controller', 'action' => 'salir', 'nivel_usuario' => 1),
-    // 'error' => array('controller' => 'Controller', 'action' => 'error', 'nivel_usuario' => 0),
-    // 'iniciarSesion' => array('controller' => 'Controller', 'action' => 'iniciarSesion', 'nivel_usuario' => 0),
-    // 'registro' => array('controller' => 'Controller', 'action' => 'registro', 'nivel_usuario' => 0),
-    // 'listarLibros' => array('controller' => 'Controller', 'action' => 'listarLibros', 'nivel_usuario' => 0),
-    // 'verLibro' => array('controller' => 'Controller', 'action' => 'verLibro', 'nivel_usuario' => 0),
-    // 'buscarPorTitulo' => array('controller' => 'Controller', 'action' => 'buscarPorTitulo', 'nivel_usuario' => 1),
-    // 'buscarPorAutor' => array('controller' => 'Controller', 'action' => 'buscarPorAutor', 'nivel_usuario' => 1),
-    // 'buscarPorEditorial' => array('controller' => 'Controller', 'action' => 'buscarPorEditorial', 'nivel_usuario' => 1),
-    // 'insertarL' => array('controller' => 'Controller', 'action' => 'insertarL', 'nivel_usuario' => 2)
+    'listarCitasPublicas' => array('controller' => 'Controller', 'action' => 'listarCitasPublicas', 'nivel_usuario' => 0),
+    'iniciarSesion' => array('controller' => 'Controller', 'action' => 'iniciarSesion', 'nivel_usuario' => 0),
+  
 );
 
 // Parseo de la ruta

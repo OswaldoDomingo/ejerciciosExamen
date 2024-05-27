@@ -1,5 +1,4 @@
-
-
+<p>Menú Home</p>
 <div class="container-fluid menu text-center p-3 my-4">
 	<div class="container">
 		<div class="row">

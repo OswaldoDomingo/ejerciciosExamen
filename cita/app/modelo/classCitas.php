@@ -7,7 +7,8 @@ class Citas extends Modelo
     {
         $consulta = "SELECT * FROM citas WHERE citas_tipo = :citas_tipo";
         $resultado = $this->conexion->prepare($consulta);
-        $resultado->bindParam(':citas_tipo', 2);
+        $tipoCitas = 2;
+        $resultado->bindParam(':citas_tipo',  $tipoCitas);
         $resultado->execute();
         return $resultado->fetchAll();
 
@@ -62,4 +63,12 @@ class Citas extends Modelo
         $resultado->execute();
         return $resultado;
     } 
+    
+    public function consultarUsuario($nombreUsuario) {
+        $consulta = "SELECT * FROM usuario WHERE usuario_nombre = :usuario_nombre";
+        $resultado = $this->conexion->prepare($consulta);
+        $resultado->bindParam(':usuario_nombre', $nombreUsuario);
+        $resultado->execute();
+        return $resultado->fetch(PDO::FETCH_ASSOC);
+    }
 }
