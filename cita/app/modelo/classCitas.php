@@ -71,4 +71,27 @@ class Citas extends Modelo
         $resultado->execute();
         return $resultado->fetch(PDO::FETCH_ASSOC);
     }
+
+    public function registrarUsuario($usuario_nombre, $usuario_edad, $usuario_imagen, $uusuario_acceso, $usuario_localidad, $usuario_correo, $usuario_pass){
+        $consulta = "INSERT INTO usuario (usuario_nombre, usuario_edad, usuario_imagen, usuario_acceso, usuario_localidad, usuario_correo, usuario_pass) VALUES (:usuario_nombre, :usuario_edad, :usuario_imagen, :usuario_acceso, :usuario_localidad, :usuario_correo, :usuario_pass)";
+        $resultado = $this->conexion->prepare($consulta);
+        $resultado->bindParam(':usuario_nombre', $usuario_nombre);
+        $resultado->bindParam(':usuario_edad', $usuario_edad);
+        $resultado->bindParam(':usuario_imagen', $usuario_imagen);
+        $resultado->bindParam(':usuario_acceso', $uusuario_acceso);
+        $resultado->bindParam(':usuario_localidad', $usuario_localidad);
+        $resultado->bindParam(':usuario_correo', $usuario_correo);
+        $resultado->bindParam(':usuario_pass', $usuario_pass);
+
+        $resultado->execute();
+        return $resultado;
+
+    }
+
+    public function pintaLocalidades(){
+        $consulta = "SELECT * FROM localidad";
+        $resultado = $this->conexion->prepare($consulta);
+        $resultado->execute();
+        return $resultado->fetchAll();
+    }
 }
