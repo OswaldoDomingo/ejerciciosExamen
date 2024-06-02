@@ -71,7 +71,7 @@ class Controller
                 'nombreUsuario' => '',
                 'contrasenya' => '',
             );
-            $menu = $this->cargarMenu();
+            //$menu = $this->cargarMenu();
 
             if ($_SESSION['nivel_usuario'] > 0) {
                 header("location:index.php?ctl=inicio");
@@ -87,9 +87,12 @@ class Controller
                         if ($contrasenya == $usuario['usuario_pass']) {
                             $_SESSION['idUsuario'] = $usuario['usuario_id'];
                             $_SESSION['nombreUsuario'] = $usuario['usuario_nombre'];
-                            $_SESSION['nivelUuario'] = $usuario['usuario_acceso'];
+                            $_SESSION['nivelUsario'] = $usuario['usuario_acceso'];
+                            $_SESSION['localidadUsuario'] = $usuario['usuario_localidad'];
+                            $_SESSION['imagenUsuario'] = $usuario['usuario_imagen'];
+                            $_SESSION['correoUsuario'] = $usuario['usuario_correo'];
 
-                            header("location:index.php?ctl=inicio");
+                            header("location:index.php?ctl=citasUsuario");
                         } else {
                             $params = array(
                                 'nombreUsuario' => $nombreUsuario,
@@ -140,20 +143,20 @@ class Controller
             'pass' => '',
         );
         $errores = array();
+        $conn = new Citas();
+		$localidades = $conn->pintaLocalidades();
+        $direcotorioImagenes = __DIR__ . '/../../web/img/';
+        $extensiones = array('jpg', 'jpeg', 'png', 'gif');
         if (isset($_POST['bRegistro'])) {
-            $nombre = recoge('nombre');
-            $edad = recoge('edad');
-            $imagen = recoge('imagen');
-            $localidad = recoge('localidad');
-            $correo = recoge('correo');
-            $pass = recoge('pass');
-
-            cTexto($nombre, 'nombre', $errores);
-            cTexto($edad, 'edad', $errores);
-            cTexto($imagen, 'imagen', $errores);
-            cTexto($localidad, 'localidad', $errores);
-            cUser($nombre, 'nombre', $errores);
-            cUser($nombre, 'nombre', $errores);
+            // $nombre = $_REQUEST['nombre'];
+            $nombre = recoge('nombre', $errores);
+            $edad = $_REQUEST['edad'];
+            $imagen = $_REQUEST['imagen'];
+            $localidad = $_REQUEST['localidad'];
+            $correo = $_REQUEST['correo'];
+            $pass = $_REQUEST['contrasenya'];
+            cUser("nombre", $nombre,  $errores);
+            cFile($imagen, $errores, $extensiones, $direcotorioImagenes, 1000000000);
 
             if (empty($errores)) {
                 try {
@@ -193,5 +196,20 @@ class Controller
 
 
         require __DIR__ . '/../../web/templates/citasFormularioRegistro.php';
+    }
+
+    public function citasUsuario()
+    {
+        // $params = array(
+        //     'mensaje' => 'Bienvenido a tu zona de usuario',
+        //     'fecha' => date('d-m-Y')
+        // );
+        // $menu = $this->cargaMenu();
+        require __DIR__ . '/../../web/templates/citasUsuario.php';
+    }
+
+    public function paginaPrueba()
+    {
+        require __DIR__ . '/../../web/templates/paginaPrueba.php';
     }
 }

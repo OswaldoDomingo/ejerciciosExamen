@@ -25,7 +25,7 @@
 			<p>* Fecha nacimiento<input TYPE="date" NAME="edad" VALUE="<?php //echo $params['apellido'] ?>"><br></p>
 			<p>* <input TYPE="text" NAME="correo" VALUE="<?php //echo $params['apellido'] ?>" PLACEHOLDER="correo@correo.es"><br></p>
 			<p>* <input TYPE="file" NAME="imagen" VALUE="<?php  //echo $params['nombreUsuario'] ?>" PLACEHOLDER="Imagen"><br></p>
-			<select>
+			<select name="localidad">
 			<?php 
 				$conn = new Citas();
 				$localidades = $conn->pintaLocalidades();

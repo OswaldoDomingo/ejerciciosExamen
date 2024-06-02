@@ -16,8 +16,8 @@
 	<div class="container text-center p-4">
 		<form ACTION="index.php?ctl=iniciarSesion" METHOD="post" NAME="formIniciarSesion">
 			<h5><b>Iniciar sesión</b></h5>
-			<p><input TYPE="text" NAME="nombreUsuario" PLACEHOLDER="Nombre de usuario"><br></p>
-			<p><input TYPE="password" NAME="contrasenya" PLACEHOLDER="Contraseña"><br></p>	
+			<p><input TYPE="text" NAME="nombreUsuario" PLACEHOLDER="Nombre de usuario" VALUE="Oswaldo"><br></p>
+			<p><input TYPE="password" NAME="contrasenya" PLACEHOLDER="Contraseña" VALUE="1234"><br></p>	
 			<input TYPE="submit" NAME="bIniciarSesion" VALUE="Aceptar"><br>
 		</form>	
 	</div>

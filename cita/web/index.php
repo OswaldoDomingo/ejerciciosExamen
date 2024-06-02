@@ -27,6 +27,8 @@ $map = array(
     'listarCitasPublicas' => array('controller' => 'Controller', 'action' => 'listarCitasPublicas', 'nivel_usuario' => 0),
     'iniciarSesion' => array('controller' => 'Controller', 'action' => 'iniciarSesion', 'nivel_usuario' => 0),
     'registro' => array('controller' => 'Controller', 'action' => 'registro', 'nivel_usuario' => 0),
+    'citasUsuario' => array('controller' => 'Controller', 'action' => 'citasUsuario', 'nivel_usuario' => 0),
+    'paginaPrueba' => array('controller' => 'Controller', 'action' => 'paginaPrueba', 'nivel_usuario' => 0),
 );
 
 // Parseo de la ruta
