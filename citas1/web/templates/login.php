@@ -1,4 +1,4 @@
-<form action="" method="post">
+<form action="index.php?ctl=inicio_sesion" method="post">
     <label for="usuario">Usuario:</label>
     <input type="text" name="usuario" id="usuario" placeholder="Tu correo" required>
     <label for="clave">Clave:</label>
