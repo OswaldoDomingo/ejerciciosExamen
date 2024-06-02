@@ -2,15 +2,13 @@
 //archivo Controller.php
 class Controller{
 
-    public function cargarMenu(){
+    private function cargarMenu(){
         if(isset($_SESSION['nivel_usuario']) == 0){
             return 'menu.php';
         } else if(isset($_SESSION['nivel_usuario']) == 1){
             return 'menu_usuario.php';
         } else if(isset($_SESSION['nivel_usuario']) == 2){
             return 'menu_admin.php';
-        } else {
-            return 'menu.php';
         }
     }
 
