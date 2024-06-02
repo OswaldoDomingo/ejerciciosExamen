@@ -12,7 +12,7 @@ session_start();
 //Se indica un nivel de usuario por defecto si no está logueado el uusuario
 if(!isset($_SESSION['nivel_usuario'])){
     $_SESSION['nivel_usuario'] = 0; //nivel de usuario por defecto es 0
-    echo "Nivel de usuario por defecto: ".$_SESSION['nivel_usuario'];
+    // echo "Nivel de usuario por defecto: ".$_SESSION['nivel_usuario'];
 }
 
 //Enryutamiento

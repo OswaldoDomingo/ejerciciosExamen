@@ -7,4 +7,12 @@
 <?php 
 $content = ob_get_clean(); 
 include 'layout.php';
+
+echo "<br>";
+echo $params['mensaje'];
+echo "<br>";
+echo $params['mensaje2'];
+echo "<br>";
+echo $params['fecha'];
+echo "<br>";
 ?>

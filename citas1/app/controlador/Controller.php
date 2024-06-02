@@ -4,7 +4,7 @@ class Controller{
 
     private function cargarMenu(){
         if(isset($_SESSION['nivel_usuario']) == 0){
-            return 'menu.php';
+            return 'menu_invitado.php';
         } else if(isset($_SESSION['nivel_usuario']) == 1){
             return 'menu_usuario.php';
         } else if(isset($_SESSION['nivel_usuario']) == 2){
@@ -25,8 +25,14 @@ class Controller{
     }
 
     public function home(){
-        $menu = $this->cargarMenu();
-        $params = array('fecha' => date('d-m-Y'));
+        // $menu = $this->cargarMenu();
+        $params = array(
+            'mensaje' => 'Bienvenido a la aplicación de citas',
+            'mensaje2' => 'Aquí encontrarás un montón de citas',
+            'fecha' => date('d-m-Y'),
+        );
+
+        $menu = 'menu_invitado.php';
         require __DIR__ . '/../../web/templates/home.php';
         echo "Hola desde el controlador home";
     }
