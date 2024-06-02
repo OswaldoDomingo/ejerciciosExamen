@@ -18,8 +18,12 @@ class Controller{
     }
 
     public function inicio(){
-        $menu = $this->cargarMenu();
-        $params = array('fecha' => date('d-m-Y'));
+        $params = array(
+            'mensaje' => 'Bienvenido a la aplicación de citas',
+            'mensaje2' => 'Aquí encontrarás un montón de citas',
+            'fecha' => date('d-m-Y'),
+        );
+        $menu = 'menu_invitado.php';
         require __DIR__ . '/../../web/templates/inicio.php';
         echo "Hola desde el controlador inicio";
     }
@@ -32,7 +36,7 @@ class Controller{
             'fecha' => date('d-m-Y'),
         );
 
-        $menu = 'menu_invitado.php';
+        $menu = 'menu_home.php';
         require __DIR__ . '/../../web/templates/home.php';
         echo "Hola desde el controlador home";
     }

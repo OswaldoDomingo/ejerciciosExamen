@@ -12,5 +12,9 @@
         }
         include $menu;
     ?>
+
+    <div class="container">
+        <?php echo $content; ?>
+    </div>
 </body>
 </html>

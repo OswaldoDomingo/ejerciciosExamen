@@ -11,9 +11,7 @@
 <?php 
 $content = ob_get_clean(); 
 ?>
-<h1>Este es el inicio de la aplicación citas</h1>
 <?php
 include 'layout.php';
-// echo $params['fecha'];
 ?>
 <br>

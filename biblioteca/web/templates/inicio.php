@@ -7,6 +7,8 @@
 
 <h4 class="text-center"><?php echo $params['mensaje2'] ?></h4><br>
 
+<h1>Estamos aquí</h1>
+
 <?php $contenido = ob_get_clean() ?>
 
 <?php include 'layout.php' ?>

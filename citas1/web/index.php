@@ -42,7 +42,7 @@ if(method_exists($controlador['controller'],$controlador['action'])) {
     if($controlador['nivel_usuario'] <= $_SESSION['nivel_usuario']) {
         call_user_func(array(new $controlador['controller'], $controlador['action']));
     } else {
-        call_user_func(array(new Controller(), 'inicio'));
+        call_user_func(array(new $controlador['controller'], 'inicio'));
     }
 }
 ?>
