@@ -37,7 +37,7 @@ if(isset($_GET['ctl'])){
     $ruta = 'home';
 } 
 $controlador = $map[$ruta];
-print_r($controlador);
+// print_r($controlador);
 if(method_exists($controlador['controller'],$controlador['action'])) {
     if($controlador['nivel_usuario'] <= $_SESSION['nivel_usuario']) {
         call_user_func(array(new $controlador['controller'], $controlador['action']));

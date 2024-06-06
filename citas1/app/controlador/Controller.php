@@ -23,7 +23,7 @@ class Controller{
             'mensaje2' => 'Aquí encontrarás un montón de citas',
             'fecha' => date('d-m-Y'),
         );
-        $menu = 'menu_invitado.php';
+        $menu = 'menu_home.php';
         require __DIR__ . '/../../web/templates/inicio.php';
         echo "Hola desde el controlador inicio";
     }
@@ -37,7 +37,10 @@ class Controller{
         );
 
         $menu = 'menu_home.php';
-        require __DIR__ . '/../../web/templates/home.php';
+        if($_SESSION['nivel_usuario']>0){
+            header("Location: index.php?ctl=inicio");
+        }
+        require __DIR__ . '/../../web/templates/inicio.php';
         echo "Hola desde el controlador home";
     }
 

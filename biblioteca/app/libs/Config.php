@@ -7,6 +7,6 @@ class Config {
     public static $mvc_bd_clave = "biblioteca";
     public static $mvc_vis_css = "estilo.css";
     public static $vista = __DIR__ . '/../templates/inicio.php';
-    public static $menu = __DIR__ . '/../templates/menuInvitado.php';
+    // public static $menu = __DIR__ . '/../templates/menuInvitado.php';
 }
 ?>

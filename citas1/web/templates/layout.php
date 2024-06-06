@@ -8,7 +8,7 @@
 <body>
     <?php
         if(isset($menu)){
-            $menu = "menu.php";
+            $menu = "menu_invitado.php";
         }
         include $menu;
     ?>

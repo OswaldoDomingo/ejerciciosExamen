@@ -7,6 +7,6 @@ class Config {
     public static $contrasena = 'citas_mvc';
 
     public static $estilos = '/../web/css/estilos.css';
-    public static $menu = '/../web/menuInvitado.php';
+    // public static $menu = '/../web/menuInvitado.php';
 }
 ?>
