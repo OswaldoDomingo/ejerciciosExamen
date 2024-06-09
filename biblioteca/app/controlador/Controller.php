@@ -24,7 +24,7 @@ class Controller
             'mensaje2' => 'Aquí encontrarás una gran variedad de libros',
             'fecha' => date('d-m-Y')
         );
-        $menu = 'menuHome.php';
+        $menu = 'menuHome.php';                        
 
         if ($_SESSION['nivel_usuario'] > 0) {
             header("location:index.php?ctl=inicio");
@@ -33,8 +33,6 @@ class Controller
     }
     public function inicio()
     {
-
-
         $params = array(
             'mensaje' => 'Bienvenido a la biblioteca virtual',
             'mensaje2' => 'Aquí encontrarás una gran variedad de libros',

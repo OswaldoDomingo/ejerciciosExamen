@@ -15,8 +15,8 @@ if(!isset($_SESSION['nivel_usuario'])){
 $map = array(
     'home' => array('controller' => 'Controller', 'action' => 'home', 'nivel_usuario'=>0),
     'inicio' => array('controller' => 'Controller', 'action' => 'inicio', 'nivel_usuario'=>0),
-    'registro' => array('controller' => 'Controller', 'action' => 'registro', 'nivel_usuario'=>0),
-    'login' => array('controller' => 'Controller', 'action' => 'login', 'nivel_usuario'=>0),
+    // 'registro' => array('controller' => 'Controller', 'action' => 'registro', 'nivel_usuario'=>0),
+    // 'login' => array('controller' => 'Controller', 'action' => 'login', 'nivel_usuario'=>0),
 );
 
 if(isset($_GET['ctl'])){
@@ -45,8 +45,9 @@ if(method_exists($controlador['controller'], $controlador['action'])){
 } else {
     header('Status: 404 Not Found');
     echo '<html><body><h1>Error 404: El controlador <i>' .
-    $controlador['controller'] .
-    '->' .
-    $controlador['action'] .
-    '</i> no existe</h1></body></html>';
+        $controlador['controller'] .
+        '->' .
+        $controlador['action'] .
+        '</i> no existe</h1></body></html>';
+        error_log('Error 404: El controlador ' . $controlador['controller'] . '->' . $controlador['action'] . ' no existe');
 }
