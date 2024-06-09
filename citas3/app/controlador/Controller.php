@@ -66,7 +66,7 @@ class Controller
                     $m = new Citas();
                     if ($usuario = $m->consultarUsuario($nombreUsuario)) {
                         //comprobar password es OK
-                        if (comprobarhash($contrasenya, $usuario['contrasenya'])) {
+                        if ($contrasenya == $usuario['contrasenya']) {
                             $_SESSION['id_usuario'] = $usuario['id'];
                             $_SESSION['nivel_usuario'] = $usuario['nivel'];
                             $_SESSION['usuario'] = $usuario['nombre'];
@@ -105,4 +105,74 @@ class Controller
             header('Location: index.php?ctl=error');
         }
     }
+
+    public function registro(){
+    $menu = $this->cargaMenu();
+    if($_SESSION['nivel_usuario'] > 0){
+        header("location:index.php?ctl=inicio");
+    }
+
+    $params = array(
+        'nombre' => '',
+        'edad' => '',
+        'imagen' => '',
+        'acceso' => '',
+        'localidad' => '',
+        'clave' => '',
+        'email' => ''
+    );
+
+    $errores = array();
+    if(isset($_POST['btnLogin'])){
+        $nombre = recoge('nombre');
+        $edad = recoge('edad');
+        $imagen = recoge('imagen');
+        $acceso = recoge('acceso');
+        $localidad = recoge('localidad');
+        $clave = recoge('clave');
+        $email = recoge('email');
+
+        cTexto($nombre, 'nombre', $errores);
+        cUser($clave, 'clave', $errores);
+
+        if(empty($errores)){
+            try{
+                $m = new Citas();
+                if($m->insertarUsuario($nombre, $edad, $imagen, 1, $localidad, $clave, $email)){
+                    header('location:index.php?ctl=login');
+                } else {
+                    $params = array(
+                        'nombre' => $nombre,
+                        'edad' => $edad,
+                        'imagen' => $imagen,
+                        'acceso' => $acceso,
+                        'localidad' => $localidad,
+                        'clave' => $clave,
+                        'email' => $email,
+                        'mensaje' => 'No se ha podido registrar el usuario'
+                    );
+                    $params['mensaje'] = 'No se ha podido registrar el usuario. Inténtelo de nuevo.';
+                }
+            } catch (Exception $e) {
+                error_log($e->getMessage() . microtime() . PHP_EOL, 3, "../app/log/logException.txt");
+                header('Location: index.php?ctl=error');
+            } catch (Error $e) {
+                error_log($e->getMessage() . microtime() . PHP_EOL, 3, "../app/log/logError.txt");
+                header('Location: index.php?ctl=error');
+            }
+        } else {
+            $params = array(
+                'nombre' => $nombre,
+                'edad' => $edad,
+                'imagen' => $imagen,
+                'acceso' => $acceso,
+                'localidad' => $localidad,
+                'clave' => $clave,
+                'email' => $email,
+                'mensaje' => 'Hay datos que no son correctos. Revisa el formulario.'
+            );
+        }
+    }
+}
+
 }

@@ -1,0 +1,3 @@
+SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect date value: '' for column 'usuario_edad' at row 10.02562000 1717961140
+SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect date value: '' for column 'usuario_edad' at row 10.56792200 1717961217
+                                                    

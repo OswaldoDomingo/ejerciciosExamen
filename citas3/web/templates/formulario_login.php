@@ -6,7 +6,7 @@
         echo "<h2>".$params['mensaje']."</h2>";
     }
 ?>
-<form action="" method="post">
+<form action="index.php?ctl=login" method="post">
     <label for="nombre">Nombre</label>
     <br>
     <input type="text" name="nombre" id="nombre" required>
