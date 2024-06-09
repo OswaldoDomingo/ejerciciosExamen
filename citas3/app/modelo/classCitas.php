@@ -48,4 +48,11 @@ class Citas extends Modelo {
         return $resultado;
         }
         
+        public function consultarUsuario($nombreUsuario) {
+            $consulta = "SELECT * FROM citas_mvc.usuario WHERE usuario_nombre=:nombreUsuario ";
+            $result = $this->conexion->prepare($consulta);
+            $result->bindParam(':nombreUsuario', $nombreUsuario);
+            $result->execute();
+            return $result->fetch(PDO::FETCH_ASSOC);
+        }
     }

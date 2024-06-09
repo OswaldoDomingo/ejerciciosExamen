@@ -15,8 +15,9 @@ if(!isset($_SESSION['nivel_usuario'])){
 $map = array(
     'home' => array('controller' => 'Controller', 'action' => 'home', 'nivel_usuario'=>0),
     'inicio' => array('controller' => 'Controller', 'action' => 'inicio', 'nivel_usuario'=>0),
-    // 'registro' => array('controller' => 'Controller', 'action' => 'registro', 'nivel_usuario'=>0),
-    // 'login' => array('controller' => 'Controller', 'action' => 'login', 'nivel_usuario'=>0),
+    'login' => array('controller' => 'Controller', 'action' => 'login', 'nivel_usuario'=>0),
+    'registro' => array('controller' => 'Controller', 'action' => 'registro', 'nivel_usuario'=>0),
+    'citasPublicas' => array('controller' => 'Controller', 'action' => 'citasPublicas', 'nivel_usuario'=>0),
 );
 
 if(isset($_GET['ctl'])){
