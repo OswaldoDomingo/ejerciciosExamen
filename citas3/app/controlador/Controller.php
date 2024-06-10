@@ -45,10 +45,9 @@ class Controller
         require __DIR__ . '/../../web/templates/inicio.php';
     }
 
-    public function login()
+    public function iniciarSesion()
     {
         try {
-
             $params = array(
                 'nombreUsuario' => '',
                 'contrasenya' => ''
@@ -58,27 +57,38 @@ class Controller
             if ($_SESSION['nivel_usuario'] > 0) {
                 header("location:index.php?ctl=inicio");
             }
-            if (isset($_POST['btnLogin'])) {
-                $nombreUsuario = recoge('nombre');
-                $contrasenya = recoge('clave');
+            if (isset($_POST['btnLogin'])) { // Nombre del boton del formulario
+                $nombreUsuario = recoge('nombreUsuario');
+                $contrasenya = recoge('contrasenya');
 
-                if (cUser($nombreUsuario, 'nombre', $params)) {
+                // Comprobar campos formulario. Aqui va la validación con las funciones de bGeneral   
+                if (cUser($nombreUsuario, "nombreUsuario", $params)) {
+                    // Si no ha habido problema creo modelo y hago consulta                    
                     $m = new Citas();
                     if ($usuario = $m->consultarUsuario($nombreUsuario)) {
-                        //comprobar password es OK
-                        if ($contrasenya == $usuario['contrasenya']) {
-                            $_SESSION['id_usuario'] = $usuario['id'];
-                            $_SESSION['nivel_usuario'] = $usuario['nivel'];
-                            $_SESSION['usuario'] = $usuario['nombre'];
-                            header("location:index.php?ctl=inicio");
-                        } else {
-                            $params = array(
-                                'nombreUsuario' => $nombreUsuario,
-                                'contrasenya' => $contrasenya,
-                                'mensaje' => 'Usuario o contraseña incorrectos'
-                            );
+                        // Compruebo si el password es correcto
+                        if (comprobarhash($contrasenya, $usuario['contrasenya'])) {
+                            // Obtenemos el resto de datos
+
+                            $_SESSION['idUser'] = $usuario['usuario_id'];
+                            $_SESSION['nombreUsuario'] = $usuario['usuario_nombre'];
+                            $_SESSION['nivel_usuario'] = $usuario['usuario_acceso'];
+
+                            header('Location: index.php?ctl=inicio');
                         }
+                    } else {
+                        $params = array(
+                            'nombreUsuario' => $nombreUsuario,
+                            'contrasenya' => $contrasenya
+                        );
+                        $params['mensaje'] = 'No se ha podido iniciar sesión. Revisa el formulario.';
                     }
+                } else {
+                    $params = array(
+                        'nombreUsuario' => $nombreUsuario,
+                        'contrasenya' => $contrasenya
+                    );
+                    $params['mensaje'] = 'Hay datos que no son correctos. Revisa el formulario.';
                 }
             }
         } catch (Exception $e) {
@@ -90,6 +100,7 @@ class Controller
         }
         require __DIR__ . '/../../web/templates/formulario_login.php';
     }
+
 
     public function citasPublicas(){
         try {
@@ -106,6 +117,7 @@ class Controller
         }
     }
 
+
     public function registro(){
     $menu = $this->cargaMenu();
     if($_SESSION['nivel_usuario'] > 0){
@@ -115,20 +127,16 @@ class Controller
     $params = array(
         'nombre' => '',
         'edad' => '',
-        'imagen' => '',
         'acceso' => '',
-        'localidad' => '',
         'clave' => '',
         'email' => ''
     );
 
     $errores = array();
-    if(isset($_POST['btnLogin'])){
+    if(isset($_POST['btnRegistro'])){
         $nombre = recoge('nombre');
         $edad = recoge('edad');
-        $imagen = recoge('imagen');
         $acceso = recoge('acceso');
-        $localidad = recoge('localidad');
         $clave = recoge('clave');
         $email = recoge('email');
 
@@ -138,15 +146,13 @@ class Controller
         if(empty($errores)){
             try{
                 $m = new Citas();
-                if($m->insertarUsuario($nombre, $edad, $imagen, 1, $localidad, $clave, $email)){
+                if($m->insertarUsuario($nombre, $edad,  1,  $clave, $email)){
                     header('location:index.php?ctl=login');
                 } else {
                     $params = array(
                         'nombre' => $nombre,
                         'edad' => $edad,
-                        'imagen' => $imagen,
                         'acceso' => $acceso,
-                        'localidad' => $localidad,
                         'clave' => $clave,
                         'email' => $email,
                         'mensaje' => 'No se ha podido registrar el usuario'
@@ -164,15 +170,14 @@ class Controller
             $params = array(
                 'nombre' => $nombre,
                 'edad' => $edad,
-                'imagen' => $imagen,
                 'acceso' => $acceso,
-                'localidad' => $localidad,
                 'clave' => $clave,
                 'email' => $email,
                 'mensaje' => 'Hay datos que no son correctos. Revisa el formulario.'
             );
         }
     }
+    require __DIR__ . '/../../web/templates/formulario_registro.php';
 }
 
 }

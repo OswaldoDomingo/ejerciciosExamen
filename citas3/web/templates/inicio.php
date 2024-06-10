@@ -9,6 +9,9 @@ ob_start();
 
 <h4><?php echo $params['mensaje2'] ?></h4><br>
 
-<?php $contenido = ob_get_clean() ?>
+
+<?php 
+
+echo $_SESSION['nombreUsuario'] ? $_SESSION['nombreUsuario']:'';  $contenido = ob_get_clean() ?>
 
 <?php include 'layout.php' ?>

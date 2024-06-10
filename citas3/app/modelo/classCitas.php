@@ -23,7 +23,7 @@ class Citas extends Modelo {
         return $resultado->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function insertarUsuario($usuario_nombre, $edad, $imagen, $acceso, $localidad, $clave, $email){
+    public function insertarUsuario($usuario_nombre, $edad, $acceso, $clave, $email){
         $consulta = "INSERT INTO usuario (usuario_nombre, usuario_edad, usuario_imagen, usuario_acceso, usuario_localidad, usuario_correo, usuario_pass) VALUES (:usuario_nombre, :edad, :imagen, :acceso, :localidad, :email, :clave)";
         $resultado = $this->conexion->prepare($consulta);
         $resultado->bindParam(':usuario_nombre', $usuario_nombre);
