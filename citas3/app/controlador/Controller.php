@@ -135,7 +135,7 @@ class Controller
     $errores = array();
     if(isset($_POST['btnRegistro'])){
         $nombre = recoge('nombre');
-        $edad = recoge('edad');
+        $edad =  unixFechaAAAAMMDD('edad', 'fecha', $errores);
         $acceso = recoge('acceso');
         $clave = recoge('clave');
         $email = recoge('email');
@@ -146,7 +146,7 @@ class Controller
         if(empty($errores)){
             try{
                 $m = new Citas();
-                if($m->insertarUsuario($nombre, $edad,  1,  $clave, $email)){
+                if($m->insertarUsuario($nombre, $edad,  2,  $clave, $email)){
                     header('location:index.php?ctl=login');
                 } else {
                     $params = array(
