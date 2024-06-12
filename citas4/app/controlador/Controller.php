@@ -86,7 +86,7 @@ class Controller
                 $nombreUsuario = recoge('nombreUsuario');
                 $contrasenya = recoge('contrasenya');
 
-                if(cUser($nombreUsuario, "uusuario", $params)){
+                if(cUser($nombreUsuario, "nombreUsuario", $params)){
 
                     $m = new Citas();
                     if($usuario = $m->consultarUsuario($nombreUsuario)){
@@ -100,7 +100,7 @@ class Controller
                                 'nombreUsuario' => $nombreUsuario,
                                 'contrasenya' => $contrasenya
                             );
-                            $params['mensaje'] = "Revisa el formulario, el usuario o la contraseña no son correctos";
+                            $params['mensaje'] = "Revisa el formulario, el usuario o la contraseña no son correctos " . $_SESSION['usuario'];
                         }
                     } else {
                         $params = array(
@@ -122,6 +122,71 @@ class Controller
             error_log($e->getMessage() . microtime() . PHP_EOL, 3, "../app/log/logError.txt");
             header('Location: index.php?ctl=error');
         } 
+        require __DIR__ . '/../../web/templates/formInicioSesion.php';
     }
+
+
+        public function registro()
+        {
+            $menu = $this->cargaMenu();
+            if($_SESSION['nivel_usuario'] > 0){
+                header("Location: index.php?ctl=inicio");
+            }
+
+            $params = array(
+                'nombre' => '',
+                'email' => '',
+                'edad' => '',
+                'contrasenya' => ''
+            );
+            $errores = array();
+
+            if(isset($_POST['bRegistro'])){
+                $nombre = recoge('nombre');
+                $email = recoge('email');
+                $edad = recoge('edad');
+                $contrasenya = recoge('contrasenya');
+
+                cTexto($nombre, 'nombre', $errores);
+                cUser($contrasenya, 'contrasenya', $errores);
+                comprobarEmail($email,  $errores);
+                unixFechaAAAAMMDD($edad, 'edad', $errores);
+
+                if(empty($errores)){
+                    try{
+                    $m = new Citas();
+                    if($usuario = $m->consultarUsuario($nombre)){
+                        $errores[] = "El usuario ya existe";
+                    } else {
+                        $m->insertarUsuario($nombre, $email, $edad, $contrasenya);
+                        $params = array(
+                            'nombre' => '',
+                            'email' => '',
+                            'edad' => '',
+                            'contrasenya' => ''
+                        );
+                        $params['mensaje'] = "Usuario registrado correctamente";
+                    }
+                }catch (Exception $e) {
+                    error_log($e->getMessage() . microtime() . PHP_EOL, 3, "../app/log/logExceptio.txt");
+                    header('Location: index.php?ctl=error');
+                } catch (Error $e) {
+                error_log($e->getMessage() . microtime() . PHP_EOL, 3, "../app/log/logError.txt");
+                header('Location: index.php?ctl=error');
+            }
+        } else {
+            $params = array(
+                'nombre' => $nombre,
+                'apellido' => $email,
+                'nombreUsuario' => $edad,
+                'contrasenya' => $contrasenya
+            );
+            $params['mensaje'] = 'Hay datos que no son correctos. Revisa el formulario.';
+        }
+    }
+        require __DIR__ . '/../../web/templates/formRegistro.php';
+
+}
+
 
 }

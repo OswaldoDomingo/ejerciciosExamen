@@ -17,6 +17,8 @@ $map = array(
     'inicio' => array('controller' => 'Controller', 'action' => 'inicio', 'nivel_usuario'=>0),
     'iniciarSesion' => array('controller' => 'Controller', 'action' => 'iniciarSesion', 'nivel_usuario'=>0),
     'citasPublicas' => array('controller' => 'Controller', 'action' => 'citasPublicas', 'nivel_usuario'=>0),
+    'salir' => array('controller' => 'Controller', 'action' => 'salir', 'nivel_usuario'=>1),
+    'registro' => array('controller' => 'Controller', 'action' => 'registro', 'nivel_usuario'=>0),
 );
 
 if (isset($_GET['ctl'])) {

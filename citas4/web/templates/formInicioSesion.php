@@ -10,11 +10,11 @@
 <form action="index.php?ctl=iniciarSesion" method="post">
     <div class="form-group">
         <label for="usuario">Usuario:</label>
-        <input type="text" class="form-control" id="usuario" name="usuario">
+        <input type="text" class="form-control" id="usuario" name="nombreUsuario">
     </div>
     <div class="form-group">
         <label for="password">Contraseña:</label>
-        <input type="password" class="form-control" id="password" name="password">
+        <input type="password" class="form-control" id="password" name="contrasenya">
     </div>
     <button type="submit" class="btn btn-primary" name = "bIniciarSesion" >Entrar</button>
 

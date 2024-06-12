@@ -403,4 +403,15 @@ function crypt_blowfish($password) {
     
     return $pass;
     }
+    
+    function comprobarEmail($email, &$errores) {
+        // Verificar si la dirección de correo electrónico es válida
+        if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            return true;
+        } else {
+            $errores["$email"] = "Ha habido un error al verificar el email";
+            return false;
+        }
+    }
+    
     ?>

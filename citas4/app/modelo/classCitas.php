@@ -17,11 +17,21 @@ class Citas extends Modelo {
     }
 
     public function consultarUsuario($usuario){
-        $consulta = "SELECT * FROM usuarios WHERE usuario = :usuario";
+        $consulta = "SELECT * FROM usuario WHERE usuario_nombre = :usuario";
         $resultado = $this->conexion->prepare($consulta);
         $resultado -> bindParam(':usuario', $usuario);
         $resultado->execute();
-        return $resultado->fetchAll(PDO::FETCH_ASSOC);
+        return $resultado->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public function insertarUsuario($nombre, $email, $edad, $contrasenya){
+        $consulta = "INSERT INTO usuario (usuario_nombre, usuario_email, usuario_edad, usuario_pass) VALUES (:nombre, :email, :edad, :contrasenya)";
+        $resultado = $this->conexion->prepare($consulta);
+        $resultado -> bindParam(':nombre', $nombre);
+        $resultado -> bindParam(':email', $email);
+        $resultado -> bindParam(':edad', $edad);
+        $resultado -> bindParam(':contrasenya', $contrasenya);
+        $resultado->execute();
     }
 
 
