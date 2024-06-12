@@ -1,0 +1,2 @@
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'usuario_email' in 'field list'0.42904100 1718218825
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'usuario_email' in 'field list'0.20749300 1718219755

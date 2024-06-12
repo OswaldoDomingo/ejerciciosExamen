@@ -25,7 +25,7 @@ class Citas extends Modelo {
     }
 
     public function insertarUsuario($nombre, $email, $edad, $contrasenya){
-        $consulta = "INSERT INTO usuario (usuario_nombre, usuario_email, usuario_edad, usuario_pass) VALUES (:nombre, :email, :edad, :contrasenya)";
+        $consulta = "INSERT INTO usuario (usuario_nombre, usuario_correo, usuario_edad, usuario_pass) VALUES (:nombre, :email, :edad, :contrasenya)";
         $resultado = $this->conexion->prepare($consulta);
         $resultado -> bindParam(':nombre', $nombre);
         $resultado -> bindParam(':email', $email);
