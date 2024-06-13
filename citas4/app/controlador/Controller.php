@@ -100,7 +100,7 @@ class Controller
                                 'nombreUsuario' => $nombreUsuario,
                                 'contrasenya' => $contrasenya
                             );
-                            $params['mensaje'] = "Revisa el formulario, el usuario o la contraseña no son correctos " . $_SESSION['usuario'];
+                            $params['mensaje'] = "Revisa el formulario, el usuario o la contraseña no son correctos.";
                         }
                     } else {
                         $params = array(
@@ -151,10 +151,10 @@ class Controller
             if (empty($errores)) {
                 try {
                     $m = new Citas();
-                    if ($usuario = $m->consultarUsuario($nombre)) {
-                        $errores[] = "El usuario ya existe";
+                    if ($usuario = $m->consultarCorreo($email)) {
+                        $errores[] = "El usuario ya existe con ese correo electrónico";
                     } else {
-                        $m->insertarUsuario($nombre, $email, $edad, $contrasenya);
+                        $m->insertarUsuario($nombre, $email, $edad, encriptar($contrasenya));
                         $params = array(
                             'nombre' => '',
                             'email' => '',

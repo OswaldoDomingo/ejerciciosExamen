@@ -409,7 +409,7 @@ function crypt_blowfish($password) {
         if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
             return true;
         } else {
-            $errores["$email"] = "Ha habido un error al verificar el email";
+            $errores[] = "Ha habido un error al verificar el email";
             return false;
         }
     }
