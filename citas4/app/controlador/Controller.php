@@ -15,6 +15,12 @@ class Controller
 
     public function home()
     {
+        if(isset($_COOKIE['tema'])){
+            $tema = $_COOKIE['tema'];
+        } else{
+            $tema = 'claro';
+        }
+
         $params = array(
             'mensaje' => 'Bienvenido a la página de inicio de citas',
             'mensaje2' => 'Aquí podrás ver las citas públicas y las tuyas propias',
@@ -69,7 +75,10 @@ class Controller
 
         require __DIR__ . '/../../web/templates/citasPublicas.php';
     }
-    
+    public function cambiarTema($tema) {
+        setcookie('tema', $tema, time() + (86400 * 30), "/"); // 30 días
+        header('Location: index.php?ctl=inicio');
+    }
     public function citasUsuario(){
         try{
             $m = new Citas();

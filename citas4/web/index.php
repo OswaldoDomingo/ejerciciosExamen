@@ -21,6 +21,7 @@ $map = array(
     'registro' => array('controller' => 'Controller', 'action' => 'registro', 'nivel_usuario'=>0),
     'error' => array('controller' => 'Controller', 'action' => 'error', 'nivel_usuario'=>0),
     'citasUsuario' => array('controller' => 'Controller', 'action' => 'citasUsuario', 'nivel_usuario'=>1),
+    'cambiarTema' => array('controller' => 'Controller', 'action' => 'cambiarTema', 'nivel_usuario'=>0),
 );
 
 if (isset($_GET['ctl'])) {
