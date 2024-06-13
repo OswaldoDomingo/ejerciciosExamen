@@ -6,9 +6,9 @@ class Controller
     {
         if ($_SESSION['nivel_usuario'] == 0) {
             return 'menuInvitado.php';
-        } else if ($_SESSION['nivel_usuario'] == 1) {
-            return 'menuUsuario.php';
         } else if ($_SESSION['nivel_usuario'] == 2) {
+            return 'menuUsuario.php';
+        } else if ($_SESSION['nivel_usuario'] == 1) {
             return 'menuAdministrador.php';
         }
     }
@@ -68,6 +68,22 @@ class Controller
         $menu = $this->cargaMenu();
 
         require __DIR__ . '/../../web/templates/citasPublicas.php';
+    }
+    
+    public function citasUsuario(){
+        try{
+            $m = new Citas();
+            $citas = $m->verCitaUsuario($_SESSION['idUser']);
+        } catch (Exception $e) {
+            error_log($e->getMessage() . microtime() . PHP_EOL, 3, "../app/log/logExceptio.txt");
+            header('Location: index.php?ctl=error');
+        } catch (Error $e) {
+            error_log($e->getMessage() . microtime() . PHP_EOL, 3, "../app/log/logError.txt");
+            header('Location: index.php?ctl=error');
+        }
+        $menu = $this->cargaMenu();
+        require __DIR__ . '/../../web/templates/citasUsuario.php';
+
     }
 
     public function iniciarSesion()
@@ -182,4 +198,6 @@ class Controller
         }
         require __DIR__ . '/../../web/templates/formRegistro.php';
     }
+
+
 }

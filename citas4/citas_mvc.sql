@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 10-06-2024 a las 18:27:00
+-- Tiempo de generación: 13-06-2024 a las 17:22:33
 -- Versión del servidor: 8.2.0
 -- Versión de PHP: 8.3.1
 
@@ -94,23 +94,26 @@ CREATE TABLE `usuario` (
   `usuario_id` int NOT NULL,
   `usuario_nombre` varchar(255) NOT NULL,
   `usuario_edad` date NOT NULL,
-  `usuario_imagen` varchar(255) DEFAULT NULL,
   `usuario_acceso` int DEFAULT NULL,
   `usuario_correo` varchar(255) NOT NULL,
-  `usuario_pass` varchar(200) NOT NULL
+  `usuario_pass` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Volcado de datos para la tabla `usuario`
 --
 
-INSERT INTO `usuario` (`usuario_id`, `usuario_nombre`, `usuario_edad`, `usuario_imagen`, `usuario_acceso`, `usuario_correo`, `usuario_pass`) VALUES
-(1, 'Oswaldo', '1963-08-27', 'oswaldo.png', 1, 'correo0@correo.es', '$2y$10$e0NRnZ1zLRg9TbVZ2O68puPvV6Lk8uZG2XHzR4FW59A93S1FWQnZC'),
-(2, 'Ana Gómez', '1963-08-27', 'ana.png', 2, 'correo1@correo.es', '$2y$10$e0NRnZ1zLRg9TbVZ2O68puPvV6Lk8uZG2XHzR4FW59A93S1FWQnZC'),
-(3, 'Carlos Ruiz', '1963-08-27', 'carlos.png', 2, 'correo2@correo.es', '$2y$10$e0NRnZ1zLRg9TbVZ2O68puPvV6Lk8uZG2XHzR4FW59A93S1FWQnZC'),
-(4, 'Oswaldo Domingo', '1963-08-27', 'arrozh.jpg', 2, 'oswaldomingo@gmail.com', '$2y$10$e0NRnZ1zLRg9TbVZ2O68puPvV6Lk8uZG2XHzR4FW59A93S1FWQnZC'),
-(5, 'Oswaldo Domingo', '1963-08-27', 'espaguetipimenta.jpg', 2, 'oswaldomingo@gmail.com', '$2y$10$e0NRnZ1zLRg9TbVZ2O68puPvV6Lk8uZG2XHzR4FW59A93S1FWQnZC'),
-(6, 'Oswaldo Domingo', '1963-08-27', 'espaguetipimenta.jpg', 2, 'oswaldomingo@gmail.com', '$2y$10$e0NRnZ1zLRg9TbVZ2O68puPvV6Lk8uZG2XHzR4FW59A93S1FWQnZC');
+INSERT INTO `usuario` (`usuario_id`, `usuario_nombre`, `usuario_edad`, `usuario_acceso`, `usuario_correo`, `usuario_pass`) VALUES
+(1, 'Oswaldo', '1963-08-27', 1, 'correo0@correo.es', '$2y$10$cn/C0AyjVANXlKiuAXU3heM/tnURHbBFQQYhNrgy903TqIfX3p/32'),
+(2, 'Ana Gómez', '1963-08-27', 2, 'correo1@correo.es', '$2y$10$cn/C0AyjVANXlKiuAXU3heM/tnURHbBFQQYhNrgy903TqIfX3p/32'),
+(3, 'Carlos Ruiz', '1963-08-27', 2, 'correo2@correo.es', '$2y$10$cn/C0AyjVANXlKiuAXU3heM/tnURHbBFQQYhNrgy903TqIfX3p/32'),
+(4, 'Oswaldo Domingo', '1963-08-27', 2, 'oswaldomingo@gmail.com', '$2y$10$cn/C0AyjVANXlKiuAXU3heM/tnURHbBFQQYhNrgy903TqIfX3p/32'),
+(5, 'Oswaldo Domingo', '1963-08-27', 2, 'oswaldomingo@gmail.com', '$2y$10$cn/C0AyjVANXlKiuAXU3heM/tnURHbBFQQYhNrgy903TqIfX3p/32'),
+(6, 'Oswaldo Domingo', '1963-08-27', 2, 'oswaldomingo@gmail.com', '$2y$10$cn/C0AyjVANXlKiuAXU3heM/tnURHbBFQQYhNrgy903TqIfX3p/32'),
+(8, 'Oswal', '1970-08-27', 2, 'oswaldomingo@gmail.com', '$2y$10$cn/C0AyjVANXlKiuAXU3heM/tnURHbBFQQYhNrgy903TqIfX3p/32'),
+(9, 'Oswaldo', '1963-08-27', 2, 'oswaldo.domingo@gmail.com', '$2y$10$cn/C0AyjVANXlKiuAXU3heM/tnURHbBFQQYhNrgy903TqIfX3p/32'),
+(10, 'Oswaldo', '1963-08-27', 2, 'oswaldo.domingo@gmail.com', '$2y$10$cn/C0AyjVANXlKiuAXU3heM/tnURHbBFQQYhNrgy903TqIfX3p/32'),
+(11, 'Oswaldo', '1963-08-27', 2, 'oswaldo.domingo@gmail.com', '$2y$10$cn/C0AyjVANXlKiuAXU3heM/tnURHbBFQQYhNrgy903TqIfX3p/32');
 
 --
 -- Índices para tablas volcadas
@@ -169,7 +172,7 @@ ALTER TABLE `tipo`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `usuario_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `usuario_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- Restricciones para tablas volcadas

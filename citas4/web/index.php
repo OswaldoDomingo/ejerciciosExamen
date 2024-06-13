@@ -20,6 +20,7 @@ $map = array(
     'salir' => array('controller' => 'Controller', 'action' => 'salir', 'nivel_usuario'=>1),
     'registro' => array('controller' => 'Controller', 'action' => 'registro', 'nivel_usuario'=>0),
     'error' => array('controller' => 'Controller', 'action' => 'error', 'nivel_usuario'=>0),
+    'citasUsuario' => array('controller' => 'Controller', 'action' => 'citasUsuario', 'nivel_usuario'=>1),
 );
 
 if (isset($_GET['ctl'])) {

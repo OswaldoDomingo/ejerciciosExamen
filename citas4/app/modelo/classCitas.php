@@ -8,10 +8,10 @@ class Citas extends Modelo {
         return $resultado->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function verCitaUsuario($usuario){
+    public function verCitaUsuario($usuario_id){
         $consulta = "SELECT * FROM citas WHERE citas_usuario = :usuario";
         $resultado = $this->conexion->prepare($consulta);
-        $resultado -> bindParam(':usuario', $usuario);
+        $resultado -> bindParam(':usuario', $usuario_id);
         $resultado->execute();
         return $resultado->fetchAll(PDO::FETCH_ASSOC);
     }

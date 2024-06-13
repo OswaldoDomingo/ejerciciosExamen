@@ -13,8 +13,8 @@
         <input type="text" class="form-control" id="usuario" name="nombreUsuario">
     </div>
     <div class="form-group">
-        <label for="password">Contraseña:</label>
-        <input type="password" class="form-control" id="password" name="contrasenya">
+        <label for="contrasenya">Contraseña:</label>
+        <input type="password" class="form-control" id="contrasenya" name="contrasenya">
     </div>
     <button type="submit" class="btn btn-primary" name = "bIniciarSesion" >Entrar</button>
 
