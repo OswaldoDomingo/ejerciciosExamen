@@ -1,7 +1,7 @@
 <?php
 class Controller
 {
-
+    
     private function cargaMenu()
     {
         if ($_SESSION['nivel_usuario'] == 0) {
@@ -15,17 +15,13 @@ class Controller
 
     public function home()
     {
-        if(isset($_COOKIE['tema'])){
-            $tema = $_COOKIE['tema'];
-        } else{
-            $tema = 'claro';
-        }
-
         $params = array(
             'mensaje' => 'Bienvenido a la página de inicio de citas',
             'mensaje2' => 'Aquí podrás ver las citas públicas y las tuyas propias',
             'fecha' => date('d-m-Y'),
+          
         );
+      
         $menu = 'menuHome.php';
 
         if ($_SESSION['nivel_usuario'] > 0) {
@@ -36,6 +32,9 @@ class Controller
 
     public function inicio()
     {
+        global $pageData;
+        $tema = $this->cargarTema();
+
         $params = array(
             'mensaje' => 'Bienvenido a la página de inicio de citas',
             'mensaje2' => 'Aquí podrás ver las citas públicas y las tuyas propias',
@@ -75,10 +74,10 @@ class Controller
 
         require __DIR__ . '/../../web/templates/citasPublicas.php';
     }
-    public function cambiarTema($tema) {
-        setcookie('tema', $tema, time() + (86400 * 30), "/"); // 30 días
-        header('Location: index.php?ctl=inicio');
+    private function cargarTema() {
+        return isset($_COOKIE['tema']) ? $_COOKIE['tema'] : 'claro';
     }
+   
     public function citasUsuario(){
         try{
             $m = new Citas();
@@ -207,6 +206,33 @@ class Controller
         }
         require __DIR__ . '/../../web/templates/formRegistro.php';
     }
+    private $tema = 'claro';
 
+    public function cambiarTema()
+    {
+        $this->tema = isset($_POST['tema']) ? $_POST['tema'] : 'claro';
+        setcookie('tema', $this->tema, time() + (86400 * 30), "/"); // 30 días
+        header('Location: index.php?ctl=inicio');
+    }
+
+    public function getTema(){
+        return isset($_COOKIE['tema']) ? $_COOKIE['tema'] : 'claro';
+    }   
+    
+    public function toggleTema(){
+        $this->tema = $this->tema == 'claro' ? 'oscuro' : 'claro';
+        $this->tema = ($this->tema == 'claro') ? 'oscuro' : 'claro';
+        $this->cambiarTema($this->tema);
+    }
+    
+    
+    
+    
+    // public function cambiarTema() {
+    //     if (isset($_POST['tema'])) {
+    //         setcookie('tema', $_POST['tema'], time() + (86400 * 30), "/"); // 30 días
+    //     }
+    //     header('Location: index.php?ctl=inicio');
+    // }
 
 }

@@ -1,4 +1,8 @@
-<?php ob_start(); ?>
+
+<?php 
+
+ob_start(); 
+?>
 <div class="inicio">
     <h3><?php echo $params['fecha'] ?></h3>
     <h3><?php echo $params['mensaje'] ?></h3>

@@ -8,7 +8,10 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
 <link rel="stylesheet" type="text/css" href="<?php echo 'css/'.Config::$css ?>" />
-<?php if($params['tema'] == 'oscuro'): ?>
+<?php 
+
+$tema = isset($_COOKIE['tema']) ? $_COOKIE['tema'] : 'claro';
+if($tema == 'oscuro'){ ?>
         <style>
             body {
                 background-color: #333;
@@ -19,7 +22,7 @@
                 padding: 20px;
             }
         </style>
-    <?php else: ?>
+    <?php }else { ?>
         <style>
             body {
                 background-color: #fff;
@@ -30,7 +33,7 @@
                 padding: 20px;
             }
         </style>
-    <?php endif; ?>
+    <?php } ?>
 </head>
 
 <body>
