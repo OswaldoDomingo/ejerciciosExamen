@@ -22,6 +22,8 @@ $map = array(
     'error' => array('controller' => 'Controller', 'action' => 'error', 'nivel_usuario'=>0),
     'citasUsuario' => array('controller' => 'Controller', 'action' => 'citasUsuario', 'nivel_usuario'=>1),
     'cambiarTema' => array('controller' => 'Controller', 'action' => 'cambiarTema', 'nivel_usuario'=>0),
+    'listarUsuarios' => array('controller' => 'Controller', 'action' => 'listarUsuarios', 'nivel_usuario'=>1),
+    'borrarUsuario' => array('controller' => 'Controller', 'action' => 'borrarUsuario', 'nivel_usuario'=>1),
 );
 
 if (isset($_GET['ctl'])) {
@@ -56,6 +58,10 @@ if (method_exists($controlador['controller'], $controlador['action'])) {
             new $controlador['controller'],
             $controlador['action']
         ));
+        if($controlador['action'] == 'borrarUsuario' && isset($_GET['usuario_id'])){
+            $controladorInstancia->borrarUsuario($_GET['usuario_id']); //Expected type 'object'. Found 'string|int'.intelephense(P1006)
+            header('Location: index.php?ctl=listarUsuarios');
+        }
     }else{
         call_user_func(array(
             new $controlador['controller'],

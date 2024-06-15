@@ -221,7 +221,6 @@ class Controller
     
     public function toggleTema(){
         $this->tema = $this->tema == 'claro' ? 'oscuro' : 'claro';
-        $this->tema = ($this->tema == 'claro') ? 'oscuro' : 'claro';
         $this->cambiarTema($this->tema);
     }
     
@@ -234,5 +233,45 @@ class Controller
     //     }
     //     header('Location: index.php?ctl=inicio');
     // }
+
+    public function listarUsuarios()
+    {
+        try {
+            $m = new Citas();
+            $usuarios = $m->listarUsuarios();
+            $menu = $this->cargaMenu();
+            require __DIR__ . '/../../web/templates/listaUsuarios.php';
+        } catch (Exception $e) {
+            error_log($e->getMessage() . microtime() . PHP_EOL, 3, "../app/log/logExceptio.txt");
+            header('Location: index.php?ctl=error');
+        } catch (Error $e) {
+            error_log($e->getMessage() . microtime() . PHP_EOL, 3, "../app/log/logError.txt");
+            header('Location: index.php?ctl=error');
+        }
+       
+    }
+
+    public function borrarUsuario()
+    {
+        try {
+            $usuarioId = filter_input(INPUT_GET, 'usuario_id', FILTER_SANITIZE_NUMBER_INT);
+            if($usuarioId){
+                $m = new Citas();
+                $m->borrarUsuario($usuarioId);
+                header('Location: index.php?ctl=listarUsuarios');
+                exit;
+            }else {
+                throw new Exception('ID de usuario no válido');
+            }
+        } catch (Exception $e) {
+            error_log($e->getMessage() . microtime() . PHP_EOL, 3, "../app/log/logExceptio.txt");
+            header('Location: index.php?ctl=error');
+        } catch (Error $e) {
+            error_log($e->getMessage() . microtime() . PHP_EOL, 3, "../app/log/logError.txt");
+            header('Location: index.php?ctl=error');
+        }
+        $menu = $this->cargaMenu();
+        require __DIR__ . '/../../web/templates/borrarUsuario.php';
+    }
 
 }

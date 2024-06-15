@@ -1,6 +1,9 @@
 <?php
 // Path: app/modelo/classCitas.php
 class Citas extends Modelo {
+    public function __construct() {
+        parent::__construct();
+    }
     public function verCitasInvitado(){
         $consulta = "SELECT * FROM citas WHERE citas_tipo = 2";
         $resultado = $this->conexion->prepare($consulta);
@@ -44,5 +47,19 @@ class Citas extends Modelo {
         $resultado->execute();
     }
 
+    public function listarUsuarios(){
+        $consulta = "SELECT * FROM usuario";
+        $resultado = $this->conexion->prepare($consulta);
+        $resultado->execute();
+        return $resultado->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function borrarUsuario($usuario_id){
+        
+        $consulta = "DELETE FROM usuario WHERE usuario_id = :usuario_id";
+        $resultado = $this->conexion->prepare($consulta);
+        $resultado -> bindParam(':usuario_id', $usuario_id, PDO::PARAM_INT);
+        $resultado->execute();
+    }
 
 }
