@@ -1,7 +1,7 @@
 <?php
 class Controller
 {
-    
+
     private function cargaMenu()
     {
         if ($_SESSION['nivel_usuario'] == 0) {
@@ -19,9 +19,9 @@ class Controller
             'mensaje' => 'Bienvenido a la página de inicio de citas',
             'mensaje2' => 'Aquí podrás ver las citas públicas y las tuyas propias',
             'fecha' => date('d-m-Y'),
-          
+
         );
-      
+
         $menu = 'menuHome.php';
 
         if ($_SESSION['nivel_usuario'] > 0) {
@@ -74,12 +74,14 @@ class Controller
 
         require __DIR__ . '/../../web/templates/citasPublicas.php';
     }
-    private function cargarTema() {
+    private function cargarTema()
+    {
         return isset($_COOKIE['tema']) ? $_COOKIE['tema'] : 'claro';
     }
-   
-    public function citasUsuario(){
-        try{
+
+    public function citasUsuario()
+    {
+        try {
             $m = new Citas();
             $citas = $m->verCitaUsuario($_SESSION['idUser']);
         } catch (Exception $e) {
@@ -91,7 +93,6 @@ class Controller
         }
         $menu = $this->cargaMenu();
         require __DIR__ . '/../../web/templates/citasUsuario.php';
-
     }
 
     public function iniciarSesion()
@@ -206,6 +207,8 @@ class Controller
         }
         require __DIR__ . '/../../web/templates/formRegistro.php';
     }
+
+    //Cambio de tema 
     private $tema = 'claro';
 
     public function cambiarTema()
@@ -215,18 +218,20 @@ class Controller
         header('Location: index.php?ctl=inicio');
     }
 
-    public function getTema(){
+    public function getTema()
+    {
         return isset($_COOKIE['tema']) ? $_COOKIE['tema'] : 'claro';
-    }   
-    
-    public function toggleTema(){
+    }
+
+    public function toggleTema()
+    {
         $this->tema = $this->tema == 'claro' ? 'oscuro' : 'claro';
         $this->cambiarTema($this->tema);
     }
-    
-    
-    
-    
+
+
+
+
     // public function cambiarTema() {
     //     if (isset($_POST['tema'])) {
     //         setcookie('tema', $_POST['tema'], time() + (86400 * 30), "/"); // 30 días
@@ -248,19 +253,18 @@ class Controller
             error_log($e->getMessage() . microtime() . PHP_EOL, 3, "../app/log/logError.txt");
             header('Location: index.php?ctl=error');
         }
-       
     }
 
     public function borrarUsuario()
     {
         try {
             $usuarioId = filter_input(INPUT_GET, 'usuario_id', FILTER_SANITIZE_NUMBER_INT);
-            if($usuarioId){
+            if ($usuarioId) {
                 $m = new Citas();
                 $m->borrarUsuario($usuarioId);
                 header('Location: index.php?ctl=listarUsuarios');
                 exit;
-            }else {
+            } else {
                 throw new Exception('ID de usuario no válido');
             }
         } catch (Exception $e) {
@@ -273,5 +277,62 @@ class Controller
         $menu = $this->cargaMenu();
         require __DIR__ . '/../../web/templates/borrarUsuario.php';
     }
+
+    public function insertarCita()
+{
+    try {
+        // Comprobamos el nivel de usuario
+        if ($_SESSION['nivel_usuario'] < 2) {
+            header('Location: index.php?ctl=inicio');
+            exit;
+        }
+
+        // Inicializamos las variables
+        $usuario_id = '';
+        $cita_texto = '';
+        $cita_fuente = '';
+        $cita_tipo = '';
+        $errores = array();
+
+        if (isset($_POST['btnEnviarCita'])) {
+            // Recogemos los datos del formulario
+            $usuario_id = recoge('usuario');
+            $cita_texto = recoge('cita_texto');
+            $cita_fuente = recoge('cita_fuente');
+            $cita_tipo = recoge('cita_tipo');
+
+            // Validamos los datos
+            // cTexto($cita_texto, 'cita_texto', $errores);
+            // cTexto($cita_fuente, 'cita_fuente', $errores);
+
+            if (empty($errores)) {
+                // Insertamos la cita en la base de datos
+                $m = new Citas();
+                $m->insertarCita($usuario_id, $cita_texto, $cita_fuente, $cita_tipo);
+                header('Location: index.php?ctl=insertarCita');
+                exit;
+            } else {
+                $params['mensaje'] = 'Hay datos que no son correctos. Revisa el formulario.';
+            }
+        }
+
+        $params = array(
+            'usuario_id' => $usuario_id,
+            'cita_texto' => $cita_texto,
+            'cita_fuente' => $cita_fuente,
+            'cita_tipo' => $cita_tipo,
+        );
+
+        $menu = $this->cargaMenu();
+        require __DIR__ . '/../../web/templates/insertarCita.php';
+
+    } catch (Exception $e) {
+        error_log($e->getMessage() . microtime() . PHP_EOL, 3, "../app/log/logException.txt");
+        header('Location: index.php?ctl=error');
+    } catch (Error $e) {
+        error_log($e->getMessage() . microtime() . PHP_EOL, 3, "../app/log/logError.txt");
+        header('Location: index.php?ctl=error');
+    }
+}
 
 }

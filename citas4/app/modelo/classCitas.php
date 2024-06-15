@@ -46,6 +46,15 @@ class Citas extends Modelo {
         $resultado -> bindParam(':contrasenya', $contrasenya);
         $resultado->execute();
     }
+    public function insertarCita($usuario_id, $cita_texto, $cita_fuente, $cita_tipo) {
+        $consulta = "INSERT INTO citas(citas_usuario, citas_texto, citas_fuente, citas_tipo) VALUES (:usuario, :texto, :fuente, :tipo)";
+        $resultado = $this->conexion->prepare($consulta);
+        $resultado->bindParam(':usuario', $usuario_id, PDO::PARAM_INT);
+        $resultado->bindParam(':texto', $cita_texto, PDO::PARAM_STR);
+        $resultado->bindParam(':fuente', $cita_fuente, PDO::PARAM_STR);
+        $resultado->bindParam(':tipo', $cita_tipo, PDO::PARAM_INT);
+        $resultado->execute();
+    }
 
     public function listarUsuarios(){
         $consulta = "SELECT * FROM usuario";

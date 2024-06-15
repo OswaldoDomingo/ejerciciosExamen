@@ -1,6 +1,4 @@
-
 <?php 
-
 ob_start(); 
 ?>
 <div class="inicio">

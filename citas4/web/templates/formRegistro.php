@@ -1,6 +1,6 @@
 <?php ob_start(); ?>
 <div class="cabeceraLogin">
-    <h1>REGISTRO CITAS VIRTUALES</h1>
+    <h2>REGISTRO CITAS VIRTUALES</h2>
 </div>
 <?php
 if (isset($params['mensaje'])) {
