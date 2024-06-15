@@ -5,7 +5,7 @@
 <head>
 <title>CITAS V 4.0</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
 
 <link rel="stylesheet" type="text/css" href="<?php echo 'css/'.Config::$css ?>" />
 <?php 
@@ -67,7 +67,7 @@ if($tema == 'oscuro'){ ?>
 	
 	<div class="container-fluid pie p-2 my-5">
 		<div class="container">
-			<h5 class="text-center"> Tus citas al alcance de tu mano</h5>
+			<h5 class="text-center"> Tus citas al alcance de la mano</h5>
 		</div>
 	</div>
 

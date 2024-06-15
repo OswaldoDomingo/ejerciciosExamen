@@ -18,8 +18,16 @@ foreach ($errores as $error) {
     <input type="text" name="cita_fuente" id="fuente">
     <label for="cita_tipo">Tipo</label>
     <select name="cita_tipo">
-        <option value="1">Privada</option>
-        <option value="2">Pública</option>
+        <!-- <option value="1">Privada</option>
+        <option value="2">Pública</option> -->
+        <?php
+            $tipos = new Citas();
+            $lista = $tipos->listaTipos();
+            foreach($lista as $tipo){
+                echo "<option value='" . $tipo['tipo_id'] . "'>" . ucfirst($tipo['tipo_nombre']) . "</option>";
+            }
+
+        ?>  
     </select>
     <input type="submit" value="Enviar Cita" name="btnEnviarCita">
 </form>

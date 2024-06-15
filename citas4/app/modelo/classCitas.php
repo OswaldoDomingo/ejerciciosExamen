@@ -71,4 +71,11 @@ class Citas extends Modelo {
         $resultado->execute();
     }
 
+    public function listaTipos(){
+        $consulta = "SELECT * FROM tipo";
+        $resultado = $this->conexion->prepare($consulta);
+        $resultado->execute();
+        return $resultado->fetchAll(PDO::FETCH_ASSOC);
+    }
+
 }
