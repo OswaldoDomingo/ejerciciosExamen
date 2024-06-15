@@ -309,7 +309,7 @@ class Controller
                 // Insertamos la cita en la base de datos
                 $m = new Citas();
                 $m->insertarCita($usuario_id, $cita_texto, $cita_fuente, $cita_tipo);
-                header('Location: index.php?ctl=insertarCita');
+                header('Location: index.php?ctl=citasUsuario');
                 exit;
             } else {
                 $params['mensaje'] = 'Hay datos que no son correctos. Revisa el formulario.';
