@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+* {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+.cabecera{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #000;
+    color: #fff;
+    margin-bottom: 100px;
+}
+.cabecera h1{
+    display: flex;
+    align-items: center;
+    font-size: 2.5em;
+    font-weight: 700;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    height: 60px;
+}
+.navegador{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #000;
+    color: #fff;
+}
+.navegador a{
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+}
+.contenido {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+
+}
+body {
+    margin: 0 0 20px 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.pie {
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.cabecera {
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+.citas{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.autor{
+    font-weight: 700;
+    margin-left: 10px;
+    font-style: italic;
+    color: #c0c0c0;
+}
+
+input[type="submit"]{
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 20px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+input[type="text"], input[type="password"], textarea, select{
+    padding: 10px;
+    margin: 10px;
+    border-radius: 8px;
+    border: 1px solid #000;
+    width: 300px;
+    text-align: center;
+}
+textarea{
+    text-align: left;
+}
+.text-center{
+    text-align: center;
+    font-size: 3em;
+}
+body {
+    background-color: #333;
+    color: #fff;
+}
+a {
+    color:#FFF;
+    text-decoration: none;
+}
+.contenido {
+    background-color: #444;
+    padding: 20px;
+    padding-bottom: 400px;
+}
+.listado{
+    text-align: left;
+}
+.listado a{
+    text-decoration: underline;
+    line-height: 2em;
+}
