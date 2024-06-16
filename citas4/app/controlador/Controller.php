@@ -32,7 +32,6 @@ class Controller
 
     public function inicio()
     {
-        global $pageData;
         $tema = $this->cargarTema();
 
         $params = array(
@@ -284,6 +283,8 @@ class Controller
         $cita_fuente = '';
         $cita_tipo = '';
         $errores = array();
+        $m = new Citas();
+        $listaTipos = $m->listaTipos();
 
         if (isset($_POST['btnEnviarCita'])) {
             // Recogemos los datos del formulario
@@ -291,6 +292,12 @@ class Controller
             $cita_texto = recoge('cita_texto');
             $cita_fuente = recoge('cita_fuente');
             $cita_tipo = recoge('cita_tipo');
+            $errores = array();
+
+            //SANITIZAR 
+            cTexto($cita_texto, 'cita_texto', $errores);
+            cTexto($cita_fuente, 'cita_fuente', $errores);
+            cSelect($cita_tipo, 'cita_tipo', $errores, $listaTipos);
 
             if (empty($errores)) {
                 // Insertamos la cita en la base de datos
@@ -352,6 +359,8 @@ public function actualizarCita(){
         $fuente = '';
         $tipo = '';
         $errores = array();
+        $m = new Citas();
+        $listaTipos = $m->listaTipos();
 
         if (isset($_POST['btnActualizar'])) {
             $id = recoge('id');
@@ -359,6 +368,11 @@ public function actualizarCita(){
             $texto = recoge('texto');
             $fuente = recoge('fuente');
             $tipo = recoge('tipo');
+
+            //Sanitizar
+            cTexto($texto, 'texto', $errores);
+            cTexto($fuente, 'fuente', $errores);
+            cSelect($tipo, 'tipo', $errores, $listaTipos);
 
             if (empty($errores)) {
                 $m = new Citas();

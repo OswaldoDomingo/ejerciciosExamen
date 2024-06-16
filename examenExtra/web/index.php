@@ -6,8 +6,9 @@ require_once __DIR__ . '/../app/libs/bGeneral.php';
 require_once __DIR__ . '/../app/modelo/Pelicula.php';
 
 $map = array(
-    'inicio' => array('controller' => 'Controller','action' => 'inicio','nivel_usuario' => 0
-    )
+    'inicio' => array('controller' => 'Controller','action' => 'inicio','nivel_usuario' => 0),
+    'login' => array('controller' => 'Controller','action' => 'login','nivel_usuario' => 0),
+
 );
 
 if (isset($_GET['ctl'])) {
