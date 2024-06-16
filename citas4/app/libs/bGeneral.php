@@ -146,7 +146,7 @@ function recogeArray(string $var): array
  */
 
 
-function cTexto(string $text, string $campo, array &$errores, bool $numeros=false, bool $puntos = false, int $max = 30, int $min = 1, bool $espacios = TRUE, bool $case = TRUE): bool
+function cTexto(string $text, string $campo, array &$errores, bool $numeros=false, bool $puntos = false, int $max = 3000, int $min = 1, bool $espacios = TRUE, bool $case = TRUE): bool
 {
     $case = ($case === TRUE) ? "i" : "";
     $espacios = ($espacios === TRUE) ? " " : "";

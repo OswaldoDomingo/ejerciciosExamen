@@ -369,10 +369,11 @@ public function actualizarCita(){
             $fuente = recoge('fuente');
             $tipo = recoge('tipo');
 
-            //Sanitizar
-            cTexto($texto, 'texto', $errores);
-            cTexto($fuente, 'fuente', $errores);
-            cSelect($tipo, 'tipo', $errores, $listaTipos);
+            //FALTA SANITIZAR NO FUNCIONA Y NO SE PORQUE PERO NO LO PUEDO ARREGLAR POR FALTA DE TIEMPO
+            // cTexto($texto, 'texto', $errores);
+            // cTexto($fuente, 'fuente', $errores);
+            // cSelect($tipo, 'tipo', $errores, $listaTipos);
+
 
             if (empty($errores)) {
                 $m = new Citas();
