@@ -138,3 +138,17 @@ a {
     text-decoration: underline;
     line-height: 2em;
 }
+.listaEditar{
+    text-align: left;
+    line-height: 2em;
+}
+.editar{
+    display: inline-block;
+    text-align: left;
+}
+.editar a {
+    text-decoration: underline;
+    color: rgb(82, 73, 214);
+    margin: 10px;
+
+}
