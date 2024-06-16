@@ -7,9 +7,7 @@
 <div class="listaEditar">
 <?php
 foreach ($citas as $cita) {
-
-    echo "<div  class='editar'><a href=''>Editar</a>" . $cita['citas_texto'] . " " . $cita['citas_fuente'] . "</div><br>";
-
+    echo "<div class='editar'><a href='index.php?ctl=editarCita&id=" . $cita['citas_id'] . "'>Editar</a> " . htmlspecialchars($cita['citas_texto']) . " " . htmlspecialchars($cita['citas_fuente']) . "</div><br>";
 }
 ?>
 </div>

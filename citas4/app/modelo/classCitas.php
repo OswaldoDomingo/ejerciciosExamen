@@ -78,4 +78,23 @@ class Citas extends Modelo {
         return $resultado->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    public function leeCita($id){
+        $consulta = "SELECT * FROM citas WHERE citas_id = :citas_id";
+        $resultado = $this->conexion->prepare($consulta);
+        $resultado->bindParam(':citas_id', $id);
+        $resultado->execute();
+        return $resultado->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public function editaCita($id, $usuario, $texto, $fuente, $tipo) {
+        $consulta = "UPDATE citas SET citas_usuario = :usuario, citas_texto = :texto, citas_fuente = :fuente, citas_tipo = :tipo WHERE citas_id = :id"; 
+        $resultado = $this->conexion->prepare($consulta);
+        $resultado->bindParam(':id', $id);
+        $resultado->bindParam(':usuario', $usuario);
+        $resultado->bindParam(':texto', $texto);
+        $resultado->bindParam(':fuente', $fuente);
+        $resultado->bindParam(':tipo', $tipo);
+        $resultado->execute();
+    }
+
 }

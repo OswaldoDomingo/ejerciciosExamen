@@ -1,0 +1,6 @@
+SQLSTATE[HY000]: General error: 1366 Incorrect integer value: '' for column 'citas_tipo' at row 10.89551200 1718531940
+SQLSTATE[HY000]: General error: 1366 Incorrect integer value: '' for column 'citas_tipo' at row 10.06383700 1718531955
+SQLSTATE[HY000]: General error: 1366 Incorrect integer value: '' for column 'citas_tipo' at row 10.47208100 1718532031
+SQLSTATE[HY000]: General error: 1366 Incorrect integer value: '' for column 'citas_tipo' at row 10.01247700 1718532054
+SQLSTATE[HY000]: General error: 1366 Incorrect integer value: '' for column 'citas_tipo' at row 10.59501500 1718532123
+SQLSTATE[HY000]: General error: 1366 Incorrect integer value: '' for column 'citas_tipo' at row 10.76615800 1718532204

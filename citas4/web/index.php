@@ -25,6 +25,8 @@ $map = array(
     'listarUsuarios' => array('controller' => 'Controller', 'action' => 'listarUsuarios', 'nivel_usuario'=>1),
     'borrarUsuario' => array('controller' => 'Controller', 'action' => 'borrarUsuario', 'nivel_usuario'=>1),
     'insertarCita' => array('controller' => 'Controller', 'action' => 'insertarCita', 'nivel_usuario' =>2),
+    'editarCita' => array('controller' => 'Controller', 'action' => 'editarCita', 'nivel_usuario' => 2),
+    'actualizarCita' => array('controller' => 'Controller', 'action' => 'actualizarCita', 'nivel_usuario' => 2),
 );
 
 if (isset($_GET['ctl'])) {

@@ -1,0 +1,4 @@
+Call to a member function listaTipos() on array0.50051000 1718531748
+Call to a member function listaTipos() on array0.46187300 1718531753
+Call to a member function listaTipos() on array0.52034900 1718531770
+Call to a member function listaTipos() on array0.72294300 1718531779

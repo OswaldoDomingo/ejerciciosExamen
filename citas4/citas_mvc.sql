@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 13-06-2024 a las 17:22:33
+-- Tiempo de generación: 16-06-2024 a las 10:18:40
 -- Versión del servidor: 8.2.0
 -- Versión de PHP: 8.3.1
 
@@ -61,9 +61,13 @@ CREATE TABLE `citas` (
 
 INSERT INTO `citas` (`citas_id`, `citas_usuario`, `citas_texto`, `citas_fuente`, `citas_tipo`) VALUES
 (1, 1, 'El conocimiento es poder.', 'Francis Bacon', 2),
-(2, 2, 'La vida es lo que sucede mientras estás ocupado haciendo otros planes.', 'John Lennon', 2),
 (3, 3, 'La única forma de hacer un gran trabajo es amar lo que haces.', 'Steve Jobs', 2),
-(4, 1, 'Existen dos posibilidades:\r\no estamos solos\r\nen el Universo\r\no no lo estamos.\r\nAmbas son igualmente aterradoras.', 'Arthur C Clarke', 2);
+(4, 1, 'Existen dos posibilidades:\r\no estamos solos\r\nen el Universo\r\no no lo estamos.\r\nAmbas son igualmente aterradoras.', 'Arthur C Clarke', 2),
+(5, 8, 'La casa por el tejado', 'Anónimo', 2),
+(6, 8, 'El sabio no dice todo lo que piensa, pero siempre piensa todo lo que dice.', 'Aristóteles (384 AC-322 AC) Filósofo griego.', 2),
+(7, 8, 'Tenemos dos orejas y una sola boca, justamente para oír más y hablar menos', 'Zenón de Citio', 1),
+(8, 8, 'Es extraño que sólo las personas extraordinarios hagan descubrimientos que luego aparecen de manera fácil y sencilla', 'Georg Lichtenberg', 1),
+(9, 8, 'La vida es lo que sucede cuando estás ocupado haciendo otros planes.', 'John Lennon', 2);
 
 -- --------------------------------------------------------
 
@@ -105,15 +109,9 @@ CREATE TABLE `usuario` (
 
 INSERT INTO `usuario` (`usuario_id`, `usuario_nombre`, `usuario_edad`, `usuario_acceso`, `usuario_correo`, `usuario_pass`) VALUES
 (1, 'Oswaldo', '1963-08-27', 1, 'correo0@correo.es', '$2y$10$cn/C0AyjVANXlKiuAXU3heM/tnURHbBFQQYhNrgy903TqIfX3p/32'),
-(2, 'Ana Gómez', '1963-08-27', 2, 'correo1@correo.es', '$2y$10$cn/C0AyjVANXlKiuAXU3heM/tnURHbBFQQYhNrgy903TqIfX3p/32'),
 (3, 'Carlos Ruiz', '1963-08-27', 2, 'correo2@correo.es', '$2y$10$cn/C0AyjVANXlKiuAXU3heM/tnURHbBFQQYhNrgy903TqIfX3p/32'),
-(4, 'Oswaldo Domingo', '1963-08-27', 2, 'oswaldomingo@gmail.com', '$2y$10$cn/C0AyjVANXlKiuAXU3heM/tnURHbBFQQYhNrgy903TqIfX3p/32'),
-(5, 'Oswaldo Domingo', '1963-08-27', 2, 'oswaldomingo@gmail.com', '$2y$10$cn/C0AyjVANXlKiuAXU3heM/tnURHbBFQQYhNrgy903TqIfX3p/32'),
 (6, 'Oswaldo Domingo', '1963-08-27', 2, 'oswaldomingo@gmail.com', '$2y$10$cn/C0AyjVANXlKiuAXU3heM/tnURHbBFQQYhNrgy903TqIfX3p/32'),
-(8, 'Oswal', '1970-08-27', 2, 'oswaldomingo@gmail.com', '$2y$10$cn/C0AyjVANXlKiuAXU3heM/tnURHbBFQQYhNrgy903TqIfX3p/32'),
-(9, 'Oswaldo', '1963-08-27', 2, 'oswaldo.domingo@gmail.com', '$2y$10$cn/C0AyjVANXlKiuAXU3heM/tnURHbBFQQYhNrgy903TqIfX3p/32'),
-(10, 'Oswaldo', '1963-08-27', 2, 'oswaldo.domingo@gmail.com', '$2y$10$cn/C0AyjVANXlKiuAXU3heM/tnURHbBFQQYhNrgy903TqIfX3p/32'),
-(11, 'Oswaldo', '1963-08-27', 2, 'oswaldo.domingo@gmail.com', '$2y$10$cn/C0AyjVANXlKiuAXU3heM/tnURHbBFQQYhNrgy903TqIfX3p/32');
+(8, 'Oswal', '1970-08-27', 2, 'oswaldomingo@gmail.com', '$2y$10$cn/C0AyjVANXlKiuAXU3heM/tnURHbBFQQYhNrgy903TqIfX3p/32');
 
 --
 -- Índices para tablas volcadas
@@ -160,7 +158,7 @@ ALTER TABLE `acceso`
 -- AUTO_INCREMENT de la tabla `citas`
 --
 ALTER TABLE `citas`
-  MODIFY `citas_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `citas_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `tipo`
@@ -182,7 +180,7 @@ ALTER TABLE `usuario`
 -- Filtros para la tabla `citas`
 --
 ALTER TABLE `citas`
-  ADD CONSTRAINT `citas_ibfk_1` FOREIGN KEY (`citas_usuario`) REFERENCES `usuario` (`usuario_id`),
+  ADD CONSTRAINT `citas_ibfk_1` FOREIGN KEY (`citas_usuario`) REFERENCES `usuario` (`usuario_id`) ON DELETE CASCADE,
   ADD CONSTRAINT `citas_ibfk_2` FOREIGN KEY (`citas_tipo`) REFERENCES `tipo` (`tipo_id`) ON DELETE RESTRICT ON UPDATE CASCADE;
 
 --

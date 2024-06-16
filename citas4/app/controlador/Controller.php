@@ -230,15 +230,6 @@ class Controller
     }
 
 
-
-
-    // public function cambiarTema() {
-    //     if (isset($_POST['tema'])) {
-    //         setcookie('tema', $_POST['tema'], time() + (86400 * 30), "/"); // 30 días
-    //     }
-    //     header('Location: index.php?ctl=inicio');
-    // }
-
     public function listarUsuarios()
     {
         try {
@@ -301,10 +292,6 @@ class Controller
             $cita_fuente = recoge('cita_fuente');
             $cita_tipo = recoge('cita_tipo');
 
-            // Validamos los datos
-            // cTexto($cita_texto, 'cita_texto', $errores);
-            // cTexto($cita_fuente, 'cita_fuente', $errores);
-
             if (empty($errores)) {
                 // Insertamos la cita en la base de datos
                 $m = new Citas();
@@ -335,5 +322,63 @@ class Controller
     }
 }
 
+public function editarCita() {
+    try {
+        $id_cita = recoge($_GET['id']);
+        $cita = new Citas();
+        $cita_nueva = $cita->leeCita($id_cita);
+
+        $params = array(
+            'cita_nueva' => $cita_nueva
+        );
+
+        require __DIR__ . '/../../web/templates/editarCita.php';
+        
+    } catch (Exception $e) {
+        error_log($e->getMessage() . microtime() . PHP_EOL, 3, "../app/log/logException.txt");
+        header('Location: index.php?ctl=error');
+    } catch (Error $e) {
+        error_log($e->getMessage() . microtime() . PHP_EOL, 3, "../app/log/logError.txt");
+        header('Location: index.php?ctl=error');
+    }
+}
+
+public function actualizarCita(){
+    try{
+        // Inicializar variables
+        $id = '';
+        $usuario = '';
+        $texto = '';
+        $fuente = '';
+        $tipo = '';
+        $errores = array();
+
+        if (isset($_POST['btnActualizar'])) {
+            $id = recoge('id');
+            $usuario = recoge('usuario');
+            $texto = recoge('texto');
+            $fuente = recoge('fuente');
+            $tipo = recoge('tipo');
+
+            if (empty($errores)) {
+                $m = new Citas();
+                $m->editaCita($id, $usuario, $texto, $fuente, $tipo);
+                header('Location: index.php?ctl=citasUsuario');
+                exit;
+            } else {
+                $params['mensaje'] = "Hay datos incorrectos";
+            }
+        }
+        $menu = $this->cargaMenu();
+        require __DIR__ . '/../../web/templates/editarCita.php';
+        
+    } catch (Exception $e) {
+        error_log($e->getMessage() . microtime() . PHP_EOL, 3, "../app/log/logException.txt");
+        header('Location: index.php?ctl=error');
+    } catch (Error $e) {
+        error_log($e->getMessage() . microtime() . PHP_EOL, 3, "../app/log/logError.txt");
+        header('Location: index.php?ctl=error');
+    }
+}
 
 }
