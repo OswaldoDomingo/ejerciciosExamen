@@ -282,7 +282,7 @@ class Controller
         $cita_texto = '';
         $cita_fuente = '';
         $cita_tipo = '';
-        $errores = array();
+        $errores = array(); 
         $m = new Citas();
         $listaTipos = $m->listaTipos();
 

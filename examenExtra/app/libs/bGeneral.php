@@ -259,6 +259,8 @@ function cSelect(string $text, string $campo, array &$errores, array $valores, b
     $errores[$campo] = "Error en el campo $campo";
     return false;
 }
+
+
 /**
  * Funcion cCheck
  *
@@ -382,5 +384,13 @@ function cFile(string $nombre, array &$errores, array $extensionesValidas, strin
     }
 }
 
-
+function fechaValida($fecha, &$errores){
+    $date = DateTime::createFromFormat('Y-m-d', $fecha);
+    if($date && $date->format('Y-m-d') === $fecha){
+        return true;
+    } else {
+        $errores['fecha'] = 'No es fecha válida';
+        return false;
+    }
+}
 ?>

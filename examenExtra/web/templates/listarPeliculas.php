@@ -5,6 +5,21 @@ ob_start();
 
 <div>
 <h1>Listado de peliculas</h1>
+
+<?php
+	foreach($peliculas as $pelicula){
+		echo $pelicula['fechaCreacion'];
+		echo "<br>";
+		echo $pelicula['resumen'];
+		echo "<br>";
+		echo $pelicula['titulo'];
+		echo "<br>";
+		echo $pelicula['duracion'];
+		echo "<br>";
+
+	}
+
+?>
 <table>
 <thead>
 	<tr>
@@ -13,8 +28,8 @@ ob_start();
 			</tr>
 	 </thead>
   <tbody>
- 
-		<!--Aqui mostramos los datos de las peliculas -->
+	
+	
 		
 		
 </tr>

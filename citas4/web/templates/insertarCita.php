@@ -4,8 +4,7 @@
 if (isset($params['mensaje'])) {
     echo "<h3>" . $params['mensaje'] . "</h3>";
 }
-?>
-<?php
+
 foreach ($errores as $error) {
     echo "<h3>" . $error . "</h3>";
 }
